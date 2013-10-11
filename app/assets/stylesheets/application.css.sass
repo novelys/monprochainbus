@@ -1,0 +1,64 @@
+// = require_self
+// = require_tree .
+
+$mainColor:                       #97bf0b
+$linkColor:                       $mainColor
+$linkColorHover:                  lighten($mainColor, 10%)
+$sansFontFamily:                  'Droid Sans', sans-serif
+$serifFontFamily:                 'Droid Serif', serif
+$monoFontFamily:                  'Droid Sans Mono', sans-serif
+$bodyBackground:                  white
+$textColor:                       #282828
+$navbarBackground:                $mainColor
+$navbarBackgroundHighlight:       $mainColor
+$navbarText:                      white
+$navbarLinkColor:                 white
+
+@import bootstrap
+@import bootstrap-responsive
+@import font-awesome
+
+/* Flatten das boostrap */
+.well, .navbar-inner, .popover, .btn, .tooltip, input, select, textarea, pre, .progress, .modal, .add-on, .alert, .table-bordered, .nav>.active>a, .dropdown-menu, .tooltip-inner, .badge, .label, .img-polaroid
+  -moz-box-shadow: none !important
+  -webkit-box-shadow: none !important
+  box-shadow: none !important
+  -webkit-border-radius: 0px !important
+  -moz-border-radius: 0px !important
+  border-radius: 0px !important
+  border-collapse: collapse !important
+  background-image: none !important
+
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner
+  border-width: 0
+
+.navbar
+  .brand
+    float: none
+    margin: 0
+    padding: 0
+    text-shadow: 0
+    font-size: 2em
+    font-family: 'Oswald', sans-serif
+    text-align: center
+    font-size: 2em
+    line-height: 2em
+    font-weight: bold
+    text-decoration: none
+
+.icon-spinner.main
+  width: 200px
+  height: 230px
+  font-size: 16em
+  color: $mainColor
+  position: absolute
+  top: 50%
+  left: 50%
+  margin-top: -80px
+  margin-left: -100px
+  vertical-align: middle
+
+.stops_list > *
+  display: none
+  &:nth-child(-n+5)
+    display: inherit
