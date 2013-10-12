@@ -12,7 +12,7 @@ class StopsController < ApplicationController
 
   def next_arrivals
     @stop = Stop.find params[:id]
-    @next_arrivals = @stop.next_arrivals
+    @next_arrivals = @stop.next_arrivals(number: 3)
 
     respond_to do |format|
       format.html
