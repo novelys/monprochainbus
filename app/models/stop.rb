@@ -19,12 +19,7 @@ class Stop
 
   def next_arrivals(time: Time.now, number: 1)
     time = Time.new(time) unless time.is_a? Time
-    response = self.class.cts_soap_client.call :recherche_prochaines_arrivees_web,
-      message: { code_arret: self.code, heure: time, nb_horaires: number}
-    response = response.body[:recherche_prochaines_arrivees_web_response]
-    response[:recherche_prochaines_arrivees_web_result][:liste_arrivee][:arrivee]
-  rescue
-    []
+    NextArrival.fetch(code: code, time: time, number: number)
   end
 
   def timesheets

@@ -1,6 +1,37 @@
 // = require_self
 // = require_tree .
 
+$tram_colors: A #e2001a, B #009ee0, C #f29400, D #009933, E #8e83b9, F #b1c800
+
+$bus_colors: 2 #e2001a, 4 #cd071e, 6 #7d5da0, 7 #009036, 10 #faba00, 70 #faba00, 12 #88cccf, 22 #88cccf, 14 #88cccf, 24 #88cccf, 15A #88cccf, 21 #88cccf, 71 #88cccf, 15 #004a99, 13 #f7c9dc, 17 #f7c9dc, 19 #f7c9dc, 31 #f7c9dc, 62 #f7c9dc, 63 #f7c9dc, 65 #f7c9dc, 72 #f7c9dc, 27 #9fc207, 30 #ffdd00, 40 #ffdd00, 50 #ffdd00, 66 #cfb1d1
+
+nav
+  .refresh
+    display: none
+
+.no-touch
+  nav
+    .refresh
+      display: inherit
+
+@each $tram_color in $tram_colors
+  .tram-#{nth($tram_color, 1)}
+    background-color: #{nth($tram_color, 2)}
+    font-weight: bold
+    padding: 5px 0
+    color: white
+    width: 60px
+    display: inline-block
+
+@each $bus_color in $bus_colors
+  .bus-#{nth($bus_color, 1)}
+    background-color: #{nth($bus_color, 2)}
+    font-weight: bold
+    padding: 5px 0
+    color: white
+    width: 60px
+    display: inline-block
+
 $mainColor:                       #97bf0b
 $linkColor:                       $mainColor
 $linkColorHover:                  lighten($mainColor, 10%)
@@ -38,13 +69,42 @@ $navbarLinkColor:                 white
     margin: 0
     padding: 0
     text-shadow: 0
-    font-size: 2em
     font-family: 'Oswald', sans-serif
     text-align: center
     font-size: 2em
     line-height: 2em
     font-weight: bold
     text-decoration: none
+    .logo-svg
+      height: 27px
+      margin: -6px 5px 0 0
+  .icon-ellipsis-vertical, .icon-ellipsis-vertical:hover, .icon-refresh, .icon-refresh:hover
+    color: white
+    margin: 0
+    padding: 0
+    text-shadow: 0
+    font-size: 2em
+    line-height: 2em
+    text-decoration: none
+    font-weight: light
+  & .nav > li > a
+    margin: 0
+    padding: 0
+  .container-fluid
+    margin: 0
+    padding: 0
+
+.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle
+  background-color: inherit
+
+.navbar .nav > li > .dropdown-menu:after
+  display: none
+
+.navbar .nav > li > .dropdown-menu:before
+  display: none
+
+.dropdown-menu
+  margin: 0 0 2px 0
 
 .icon-spinner.main
   width: 200px
@@ -62,11 +122,21 @@ $navbarLinkColor:                 white
   display: none
   font-size: 2em
   line-height: 2em
+  margin-bottom: 20px
   .next_arrivals_list > .next_arrival
-    font-size: 1em
-    line-height: 1em
+    font-size: 0.8em
+    line-height: 0.8em
     padding: 10px 0 0 0
     margin-left: -20px
+    .line_direction
+      text-align: left
+      padding: 5px 0
+      margin-left: 10px
+      width: 30%
+      text-overflow: ellipsis
+      white-space: nowrap
+      overflow: hidden
+      display: inline-block
 
   &:nth-child(-n+5)
     display: inherit

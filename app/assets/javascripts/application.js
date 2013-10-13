@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require modernizr.custom.88580
 //=# require turbolinks
+//= require bootstrap-dropdown
 //= require_tree .

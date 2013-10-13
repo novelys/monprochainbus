@@ -1,0 +1,39 @@
+fr:
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one:   "env. 1h"
+        other: "env. %{count}h"
+      about_x_months:
+        one:   "env. un mois"
+        other: "env. %{count} mois"
+      about_x_years:
+        one:   "env. un an"
+        other: "env. %{count} ans"
+      almost_x_years:
+        one:   "presqu'un an"
+        other: "presque %{count} ans"
+      half_a_minute: "une demi-minute"
+      less_than_x_minutes:
+        zero:  "moins d'1 min"
+        one:   "moins d'1 min"
+        other: "moins de %{count} min"
+      less_than_x_seconds:
+        zero:  "moins d'1 s"
+        one:   "moins d'1 s"
+        other: "moins de %{count} s"
+      over_x_years:
+        one:   "plus d'un an"
+        other: "plus de %{count} ans"
+      x_days:
+        one:   "1 j"
+        other: "%{count} j"
+      x_minutes:
+        one:   "1 min"
+        other: "%{count} min"
+      x_months:
+        one:   "1 mois"
+        other: "%{count} mois"
+      x_seconds:
+        one:   "1 s"
+        other: "%{count} s"
