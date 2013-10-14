@@ -8,6 +8,10 @@
   %head
     %title= @page_title = "Mon Prochain #{ @main_app_name } à Strasbourg"
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+    %meta{property: "og:title", content: "Mon Prochain Bus à Strasbourg"}
+    %meta{property: "og:type", content: "website"}
+    %meta{property: "og:description", content: "Mon Prochain Bus à Strasbourg vous permet de visualiser les horaires des trois prochains trams autour de vous. Le site utilise votre position GPS pour détecter les stations les plus proches et vous afficher les horaires des 3 prochains passages."}
+    %meta{property: "og:image", content: asset_url("fb.png")}
     = stylesheet_link_tag "application", media: "all"
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Oswald:300.400.700"
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Droid+Sans:400,700"
