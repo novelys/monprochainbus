@@ -1,26 +1,6 @@
 // = require_self
-// = require_tree .
 
-$tram_colors: A #e2001a, B #009ee0, C #f29400, D #009933, E #8e83b9, F #b1c800
-
-$bus_colors: 2 #e2001a, 4 #cd071e, 6 #7d5da0, 6A #7d5da0, 6B #7d5da0, 7 #009036, 10 #faba00, 70 #faba00, 70A #faba00, 12 #88cccf, 22 #88cccf, 14 #88cccf, 24 #88cccf, 15A #88cccf, 21 #88cccf, 71 #88cccf, 15 #004a99, 13 #f7c9dc, 17 #f7c9dc, 19 #f7c9dc, 31 #f7c9dc, 62 #f7c9dc, 63 #f7c9dc, 65 #f7c9dc, 72 #f7c9dc, 27 #9fc207, 30 #ffdd00, 40 #ffdd00, 50 #ffdd00, 66 #cfb1d1
-
-nav
-  .refresh
-    display: none
-
-.no-touch
-  nav
-    .refresh
-      display: inherit
-
-@each $tram_color in $tram_colors
-  .tram-#{nth($tram_color, 1)}
-    background-color: #{nth($tram_color, 2)}
-
-@each $bus_color in $bus_colors
-  .bus-#{nth($bus_color, 1)}
-    background-color: #{nth($bus_color, 2)}
+@import fonts
 
 $mainColor:                       #97bf0b
 $linkColor:                       $mainColor
@@ -38,61 +18,9 @@ $navbarLinkColor:                 white
 @import bootstrap
 @import bootstrap-responsive
 @import font-awesome
-
-/* Flatten das boostrap */
-.well, .navbar-inner, .popover, .btn, .tooltip, input, select, textarea, pre, .progress, .modal, .add-on, .alert, .table-bordered, .nav>.active>a, .dropdown-menu, .tooltip-inner, .badge, .label, .img-polaroid
-  -moz-box-shadow: none !important
-  -webkit-box-shadow: none !important
-  box-shadow: none !important
-  -webkit-border-radius: 0px !important
-  -moz-border-radius: 0px !important
-  border-radius: 0px !important
-  border-collapse: collapse !important
-  background-image: none !important
-
-.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner
-  border-width: 0
-
-.navbar
-  .brand
-    float: none
-    margin: 0
-    padding: 0
-    text-shadow: 0
-    font-family: 'Oswald', sans-serif
-    text-align: center
-    font-size: 2em
-    line-height: 2em
-    font-weight: bold
-    text-decoration: none
-    .logo-svg
-      height: 27px
-      margin: -6px 5px 0 0
-  .icon-ellipsis-vertical, .icon-ellipsis-vertical:hover, .icon-undo, .icon-undo:hover
-    color: white
-    margin: 0
-    padding: 0
-    text-shadow: 0
-    font-size: 2em
-    line-height: 2em
-    text-decoration: none
-    font-weight: light
-    padding: 0 15px
-  & .nav > li > a
-    margin: 0
-    padding: 0
-  .container-fluid
-    margin: 0
-    padding: 0
-
-.navbar .nav > li > .dropdown-menu:after
-  display: none
-
-.navbar .nav > li > .dropdown-menu:before
-  display: none
-
-.dropdown-menu
-  margin: 0 0 2px 0
+@import bus_colors
+@import flatdesign
+@import navbar
 
 .icon-spinner.main
   width: 200px
@@ -115,6 +43,9 @@ $navbarLinkColor:                 white
     margin-bottom: 20px
     .stop_name
       font-weight: bold
+    .distance
+      margin-left: 20px
+      font-size: 60%
     .next_arrivals_list > .next_arrival
       margin-left: -20px
       border-bottom: 1px dashed #EEEEEE
@@ -158,20 +89,6 @@ $navbarLinkColor:                 white
       display: inherit
 
 @media screen and (max-width: 767px)
-  .navbar-inner
-    padding-left: 0
-    padding-right: 0
-
-  .navbar
-    .brand
-      font-size: 1.8em
-      line-height: 1.8em
-      .logo-svg
-        height: 27px
-        margin: -6px 5px 0 0
-    .icon-ellipsis-vertical, .icon-ellipsis-vertical:hover, .icon-undo, .icon-undo:hover
-      font-size: 1.8em
-      line-height: 1.8em
 
   .stops_list
     & > .stop
@@ -195,19 +112,6 @@ $navbarLinkColor:                 white
 
 @media screen and (max-width: 479px)
 
-  .navbar-inner
-    padding: 5px 0
-  .navbar
-    .brand
-      font-size: 1.4em
-      line-height: 1.4em
-      .logo-svg
-        height: 27px
-        margin: -6px 5px 0 0
-    .icon-ellipsis-vertical, .icon-ellipsis-vertical:hover, .icon-undo, .icon-undo:hover
-      font-size: 1.6em
-      line-height: 1.6em
-
   .stops_list
     & > .stop
       font-size: 1.6em
@@ -230,6 +134,7 @@ $navbarLinkColor:                 white
           line-height: 0.6em
 
 @media screen and (min-width: 1200px)
+
   .stops_list
     & > .stop
       .stop_name

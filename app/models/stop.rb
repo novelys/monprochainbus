@@ -22,6 +22,14 @@ class Stop
     NextArrival.fetch(code: code, time: time, number: number)
   end
 
+  def lat
+    coordinates.last
+  end
+
+  def lng
+    coordinates.first
+  end
+
   def timesheets
     response = self.class.cts_soap_client.call :recherche_fiches_horaires,
       message: { code_arret: self.code }
