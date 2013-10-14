@@ -37,6 +37,11 @@
 
     .container
       = yield
+    %footer
+      .container
+        .pull-right
+          = link_to "http://www.strasbourg.eu", target: "_blank" do
+            = image_tag "europtimist.png", alt: "Strasbourg The Europtimist"
     = javascript_include_tag "application"
     :javascript
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
