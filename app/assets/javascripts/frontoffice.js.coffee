@@ -12,7 +12,19 @@ $(document).on "ready", () ->
         $(data).each () ->
           name = this.name
           code = this.code
-          new_node = $("<li class='stop'><span class='stop_name'>#{ name }</span> <i class='icon-spinner icon-spin secondary'></i><ul class='unstyled next_arrivals_list'></ul></li>")
+          new_node = $("
+            <div class='row stop'>
+              <div class='span12'>
+                <div class='row'>
+                  <div class='span9 offset3 text-left'>
+                    <span class='stop_name'>#{ name }</span> <i class='icon-spinner icon-spin secondary'></i>
+                  </div>
+                </div>
+                <div class='next_arrivals_list'>
+                </div>
+              </div>
+            </div>
+          ")
           $(".stops_list").append(new_node)
           if i < 5
             $.ajax
@@ -25,7 +37,17 @@ $(document).on "ready", () ->
                   line_name = this.line_name
                   line_direction = this.line_direction
                   scheduled_remaining_times = this.scheduled_remaining_times.join(", ")
-                  new_node2 = $("<li class='next_arrival clearfix'><span class='#{mode}-#{line_name} pull-left'>#{line_name}</span><span class='line_direction pull-left'>#{line_direction}</span><span class='scheduled_remaining_times pull-left'><i class='icon-time'></i> #{scheduled_remaining_times}</span></li>")
+                  new_node2 = $("
+                    <div class='row next_arrival'>
+                      <div class='span6'>
+                        <span class='#{mode}-#{line_name} line_name'>#{line_name}</span>
+                        <span class='line_direction'>#{line_direction}</span>
+                      </div>
+                      <div class='span6'>
+                        <span class='scheduled_remaining_times'><i class='icon-time'></i> #{scheduled_remaining_times}</span>
+                      </div>
+                    </div>
+                  ")
                   $(".next_arrivals_list", new_node).append(new_node2)
                 $(".icon-spinner.secondary", new_node).addClass("hide")
           i++

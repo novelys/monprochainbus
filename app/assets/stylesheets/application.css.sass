@@ -3,7 +3,7 @@
 
 $tram_colors: A #e2001a, B #009ee0, C #f29400, D #009933, E #8e83b9, F #b1c800
 
-$bus_colors: 2 #e2001a, 4 #cd071e, 6 #7d5da0, 7 #009036, 10 #faba00, 70 #faba00, 12 #88cccf, 22 #88cccf, 14 #88cccf, 24 #88cccf, 15A #88cccf, 21 #88cccf, 71 #88cccf, 15 #004a99, 13 #f7c9dc, 17 #f7c9dc, 19 #f7c9dc, 31 #f7c9dc, 62 #f7c9dc, 63 #f7c9dc, 65 #f7c9dc, 72 #f7c9dc, 27 #9fc207, 30 #ffdd00, 40 #ffdd00, 50 #ffdd00, 66 #cfb1d1
+$bus_colors: 2 #e2001a, 4 #cd071e, 6 #7d5da0, 6A #7d5da0, 6B #7d5da0, 7 #009036, 10 #faba00, 70 #faba00, 12 #88cccf, 22 #88cccf, 14 #88cccf, 24 #88cccf, 15A #88cccf, 21 #88cccf, 71 #88cccf, 15 #004a99, 13 #f7c9dc, 17 #f7c9dc, 19 #f7c9dc, 31 #f7c9dc, 62 #f7c9dc, 63 #f7c9dc, 65 #f7c9dc, 72 #f7c9dc, 27 #9fc207, 30 #ffdd00, 40 #ffdd00, 50 #ffdd00, 66 #cfb1d1
 
 nav
   .refresh
@@ -17,20 +17,10 @@ nav
 @each $tram_color in $tram_colors
   .tram-#{nth($tram_color, 1)}
     background-color: #{nth($tram_color, 2)}
-    font-weight: bold
-    padding: 5px 0
-    color: white
-    width: 60px
-    display: inline-block
 
 @each $bus_color in $bus_colors
   .bus-#{nth($bus_color, 1)}
     background-color: #{nth($bus_color, 2)}
-    font-weight: bold
-    padding: 5px 0
-    color: white
-    width: 60px
-    display: inline-block
 
 $mainColor:                       #97bf0b
 $linkColor:                       $mainColor
@@ -78,7 +68,7 @@ $navbarLinkColor:                 white
     .logo-svg
       height: 27px
       margin: -6px 5px 0 0
-  .icon-ellipsis-vertical, .icon-ellipsis-vertical:hover, .icon-refresh, .icon-refresh:hover
+  .icon-ellipsis-vertical, .icon-ellipsis-vertical:hover, .icon-undo, .icon-undo:hover
     color: white
     margin: 0
     padding: 0
@@ -87,15 +77,13 @@ $navbarLinkColor:                 white
     line-height: 2em
     text-decoration: none
     font-weight: light
+    padding: 0 15px
   & .nav > li > a
     margin: 0
     padding: 0
   .container-fluid
     margin: 0
     padding: 0
-
-.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle
-  background-color: inherit
 
 .navbar .nav > li > .dropdown-menu:after
   display: none
@@ -118,25 +106,138 @@ $navbarLinkColor:                 white
   margin-left: -100px
   vertical-align: middle
 
-.stops_list > .stop
-  display: none
-  font-size: 2em
-  line-height: 2em
-  margin-bottom: 20px
-  .next_arrivals_list > .next_arrival
-    font-size: 0.8em
-    line-height: 0.8em
-    padding: 10px 0 0 0
-    margin-left: -20px
-    .line_direction
-      text-align: left
-      padding: 5px 0
-      margin-left: 10px
-      width: 30%
-      text-overflow: ellipsis
-      white-space: nowrap
-      overflow: hidden
-      display: inline-block
+.stops_list
+  margin-top: 20px
+  & > .stop
+    display: none
+    font-size: 2em
+    line-height: 1.6em
+    margin-bottom: 20px
+    .stop_name
+      font-weight: bold
+    .next_arrivals_list > .next_arrival
+      margin-left: -20px
+      border-bottom: 1px dashed #EEEEEE
+      margin-bottom: 5px
+      &:first-child
+        border-top: 1px dashed #EEEEEE
+        padding-top: 5px
+      .line_name
+        text-align: center
+        color: white
+        width: 60px
+        font-weight: bold
 
-  &:nth-child(-n+5)
-    display: inherit
+        display: inline-block
+        font-size: 0.8em
+        line-height: 0.8em
+        padding: 5px 0
+        float: left
+      .line_direction
+        text-align: left
+        margin-left: 10px
+        width: 80%
+        text-overflow: ellipsis
+        white-space: nowrap
+        overflow: hidden
+
+        display: inline-block
+        font-size: 0.8em
+        line-height: 0.8em
+        padding: 5px 0
+        float: left
+      .scheduled_remaining_times
+
+        display: inline-block
+        font-size: 0.8em
+        line-height: 0.8em
+        padding: 5px 0
+        float: left
+
+    &:nth-child(-n+5)
+      display: inherit
+
+@media screen and (max-width: 767px)
+  .navbar-inner
+    padding-left: 0
+    padding-right: 0
+
+  .navbar
+    .brand
+      font-size: 1.8em
+      line-height: 1.8em
+      .logo-svg
+        height: 27px
+        margin: -6px 5px 0 0
+    .icon-ellipsis-vertical, .icon-ellipsis-vertical:hover, .icon-undo, .icon-undo:hover
+      font-size: 1.8em
+      line-height: 1.8em
+
+  .stops_list
+    & > .stop
+      font-size: 1.8em
+      line-height: 1.4em
+      .stop_name
+      .next_arrivals_list > .next_arrival
+        padding: 5px 0 5px 10px
+        &:first-child
+          padding-top: 5px
+        .line_name
+          width: 40px
+          font-size: 0.6em
+          line-height: 0.6em
+        .line_direction
+          font-size: 0.6em
+          line-height: 0.6em
+        .scheduled_remaining_times
+          font-size: 0.6em
+          line-height: 0.6em
+
+@media screen and (max-width: 479px)
+
+  .navbar-inner
+    padding: 5px 0
+  .navbar
+    .brand
+      font-size: 1.6em
+      line-height: 1.6em
+      .logo-svg
+        height: 27px
+        margin: -6px 5px 0 0
+    .icon-ellipsis-vertical, .icon-ellipsis-vertical:hover, .icon-undo, .icon-undo:hover
+      font-size: 1.6em
+      line-height: 1.6em
+
+  .stops_list
+    & > .stop
+      font-size: 1.6em
+      line-height: 1.6em
+      margin-bottom: 10px
+      .stop_name
+      .next_arrivals_list > .next_arrival
+        padding: 5px 0 5px 10px
+        &:first-child
+          padding-top: 5px
+        .line_name
+          width: 40px
+          font-size: 0.6em
+          line-height: 0.6em
+        .line_direction
+          font-size: 0.6em
+          line-height: 0.6em
+        .scheduled_remaining_times
+          font-size: 0.6em
+          line-height: 0.6em
+
+@media screen and (min-width: 1200px)
+  .stops_list
+    & > .stop
+      .stop_name
+      .next_arrivals_list > .next_arrival
+        margin-left: 0
+        &:first-child
+        .span6
+          margin-left: 10px
+        .line_name
+        .line_direction
+          width: 80%
