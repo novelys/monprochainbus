@@ -15,7 +15,8 @@ $(document).on "ready", () ->
         # console.log response
         if rows.length >= 1
           duration = rows[0].elements[0].duration.text.replace("minutes", "min")
-          node.find(".icon-spinner.tertiary").replaceWith("<span>#{duration}</span>")
+          url = "http://maps.google.com/?saddr=#{latitude1},#{longitude1}&daddr=#{latitude2},#{longitude2}&dirflg=w"
+          node.find(".icon-spinner.tertiary").replaceWith("<span><a href='#{url}' target='_blank'>#{duration}</a></span>")
     )
 
   getStopInfos = (latitude, longitude) ->
