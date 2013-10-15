@@ -1,12 +1,14 @@
+class NoNextArrivals < StandardError; end
+
 class NextArrival
 
   def self.fetch(code: nil, time: Time.now, number: 1)
     response = cts_soap_client.call :recherche_prochaines_arrivees_web,
       message: { code_arret: code, heure: time, nb_horaires: number}
     response = response.body[:recherche_prochaines_arrivees_web_response]
-    return [] if reponse.blank?
     now = Time.now
-    res = response[:recherche_prochaines_arrivees_web_result][:liste_arrivee][:arrivee]
+    res = response[:recherche_prochaines_arrivees_web_result][:liste_arrivee].try(:[], :arrivee)
+    raise NoNextArrivals if res.blank?
     res = [res] unless res.is_a? Array
     res.inject({}){|memo, obj|
       key = obj[:destination]

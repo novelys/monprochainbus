@@ -92,7 +92,20 @@ $(document).on "ready", () ->
                     </div>
                   ")
                   $(".next_arrivals_list", new_node).append(new_node2)
+              complete: (xhr, status) ->
                 $(".icon-spinner.secondary", new_node).addClass("hide")
+              error: (xhr, status, error) ->
+                error_type = xhr.responseJSON.error
+                if error_type == "NoNextArrivals"
+                  new_node2 = $("
+                    <div class='row next_arrival'>
+                      <div class='span12'>
+                        <em class='error'>Aucun résultat pour cette station...</em>
+                      </div>
+                    </div>
+                  ")
+                $(".next_arrivals_list", new_node).append(new_node2)
+
           i++
 
   if Modernizr.geolocation

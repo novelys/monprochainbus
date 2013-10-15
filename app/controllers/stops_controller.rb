@@ -23,5 +23,12 @@ class StopsController < ApplicationController
         render json: @next_arrivals
       }
     end
+  rescue NoNextArrivals => e
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: {error: e.to_s}, status: 500
+      }
+    end
   end
 end
