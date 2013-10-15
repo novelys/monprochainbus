@@ -6,6 +6,7 @@ class NextArrival
     response = response.body[:recherche_prochaines_arrivees_web_response]
     now = Time.now
     res = response[:recherche_prochaines_arrivees_web_result][:liste_arrivee][:arrivee]
+    res = [res] unless res.is_a? Array
     res.inject({}){|memo, obj|
       key = obj[:destination]
       if memo[ key ].present?
