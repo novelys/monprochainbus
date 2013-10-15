@@ -4,6 +4,7 @@ class NextArrival
     response = cts_soap_client.call :recherche_prochaines_arrivees_web,
       message: { code_arret: code, heure: time, nb_horaires: number}
     response = response.body[:recherche_prochaines_arrivees_web_response]
+    return [] if reponse.blank?
     now = Time.now
     res = response[:recherche_prochaines_arrivees_web_result][:liste_arrivee][:arrivee]
     res = [res] unless res.is_a? Array
