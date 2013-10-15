@@ -63,6 +63,7 @@ $(document).on "ready", () ->
               success: (data2) ->
                 $(data2).each () ->
                   mode = this.mode
+                  console.log mode
                   line_name = this.line_name
                   line_direction = this.line_direction
                   scheduled_remaining_times = this.scheduled_remaining_times.join(", ")
@@ -70,7 +71,11 @@ $(document).on "ready", () ->
                     <div class='row next_arrival'>
                       <div class='span6'>
                         <span class='#{mode}-#{line_name} line_name'>#{line_name}</span>
-                        <span class='line_direction'><i class='icon-long-arrow-right'></i> #{line_direction}</span>
+                        <span class='line_direction'>
+                          <i class='icomoon-#{mode}'></i>
+                          <i class='icon-long-arrow-right'></i>
+                          #{line_direction}
+                        </span>
                       </div>
                       <div class='span6'>
                         <span class='scheduled_remaining_times'><i class='icon-time'></i> #{scheduled_remaining_times}</span>
