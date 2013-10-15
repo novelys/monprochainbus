@@ -20,14 +20,24 @@ $(document).on "ready", () ->
     )
 
   getStopInfos = (latitude, longitude) ->
+    $(".waiting.main").removeClass("hide")
+    $(".address .default_message").addClass("hide")
+    $(".address .text").removeClass("hide").html("#{latitude},#{longitude}")
+    geocoder = new google.maps.Geocoder()
+    latlng = new google.maps.LatLng(latitude, longitude)
+    geocoder.geocode {'latLng': latlng}, (results, status) ->
+      if (status == google.maps.GeocoderStatus.OK)
+        if (results[1])
+          $(".address .text").removeClass("hide").html results[1].formatted_address
+
     $.ajax
       url: '/stops',
       type: 'GET',
       dataType: 'json',
       data: {lat: latitude, lng: longitude},
       success: (data) ->
-        $(".icon-spinner.main").addClass("hide")
-        $(".stops_list").removeClass("hide")
+        $(".waiting.main").addClass("hide")
+        $(".stops_list").removeClass("hide").empty()
         i = 0
         $(data).each () ->
           name = this.name
@@ -63,7 +73,6 @@ $(document).on "ready", () ->
               success: (data2) ->
                 $(data2).each () ->
                   mode = this.mode
-                  console.log mode
                   line_name = this.line_name
                   line_direction = this.line_direction
                   scheduled_remaining_times = this.scheduled_remaining_times.join(", ")
@@ -89,3 +98,21 @@ $(document).on "ready", () ->
   if Modernizr.geolocation
     navigator.geolocation.getCurrentPosition (pos) ->
       getStopInfos(pos.coords.latitude, pos.coords.longitude)
+  else
+    $(".form").removeClass("hide")
+
+  $(".do-displayForm").on "click", (e) ->
+    e.preventDefault()
+    $(".form").removeClass("hide")
+
+  $(".form form").on "submit", (e) ->
+    e.preventDefault()
+
+  input = $("#search").get(0)
+  autocomplete = new google.maps.places.Autocomplete(input)
+  google.maps.event.addListener autocomplete, 'place_changed', () ->
+    place = autocomplete.getPlace()
+    location = place.geometry.location
+    getStopInfos location.lat(), location.lng()
+
+

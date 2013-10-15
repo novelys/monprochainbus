@@ -22,17 +22,32 @@ $navbarLinkColor:                 white
 @import flatdesign
 @import navbar
 
-.icon-spinner.main
-  width: 200px
-  height: 230px
+.waiting.main
   font-size: 16em
+  line-height: 2em
   color: $mainColor
-  position: absolute
-  top: 50%
-  left: 50%
-  margin-top: -80px
-  margin-left: -100px
+  text-align: center
   vertical-align: middle
+
+footer
+  padding: 10px 0
+
+.do-displayForm
+  color: #282828
+  text-decoration: underline
+  &:hover
+    color: $textColor
+
+.form
+  margin: 20px 0
+  .btn
+    background-color: $mainColor
+    color: white
+    border-color: $mainColor
+    box-shadow: none
+    border-radius: 0
+    text-shadow: none
+    background-image: linear-gradient(to bottom, $mainColor, $mainColor)
 
 .stops_list
   margin-top: 20px
@@ -83,9 +98,6 @@ $navbarLinkColor:                 white
         line-height: 0.8em
         padding: 5px 0
         float: left
-
-        // .icomoon-tram
-        //   font-size: 1em
 
       .scheduled_remaining_times
 

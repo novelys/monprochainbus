@@ -1,5 +1,20 @@
-= image_tag "walking.svg", id: "walking", class: "hide"
 .row
+  .span12
+    .pull-left
+      %small.address
+        %span.default_message.hide Géolocation en cours...
+        %span.text.hide
+    .pull-right
+      %small= link_to "Rentrer une adresse manuellement", "#", class: "do-displayForm"
+.row.form.hide
   .span12.text-center
+    %form.form-inline
+      %label.input-xxlarge
+        Au cas où votre navigateur ne supporterait pas de fonction de géolocalisation, ou si vous voulez rentrez une adresse précise, vous pouvez le faire ci-dessous :
+      %br
+      = text_field_tag 'search', nil, placeholder: 'Entrez votre adresse ici...', class: "input-xxlarge"
+      =# button_tag "Rechercher", class: "btn"
+.row.waiting.main.hide
+  .span12
     %i.icon-spinner.icon-spin.main
 .stops_list.hide
