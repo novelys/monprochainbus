@@ -1,4 +1,4 @@
-- @description = "Mon Prochain Bus à Strasbourg utilise votre position GPS pour trouver les trois stations les plus proches de vous et afficher les horaires des 3 prochains bus ou trams."
+- @description = "Mon Prochain Bus à Strasbourg utilise votre position GPS pour trouver les 3 stations les plus proches de vous et afficher les horaires des 3 prochains bus ou trams."
 !!!
 /[if lt IE 8] <html class="no-js ie7 oldie" lang="en">
 /[if IE 8] <html class="no-js ie8 oldie" lang="en">
@@ -8,6 +8,8 @@
   <!--<![endif]-->
   %head
     %title= @page_title = "Mon Prochain #{ @main_app_name } à Strasbourg"
+    %meta{charset: "utf-8"}
+    %meta{"http-equiv" => "X-UA-Compatible", content: "IE=edge,chrome=1"}
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     %meta{name: "description", content: @description}
     %meta{property: "og:title", content: "Mon Prochain Bus à Strasbourg"}
