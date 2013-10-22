@@ -12,7 +12,6 @@ $(document).on "ready", () ->
     , (response, status) ->
       if status == "OK"
         rows = response.rows
-        # console.log response
         if rows.length >= 1
           duration = rows[0].elements[0].duration.text.replace("minutes", "min")
           url = "http://maps.google.com/?saddr=#{latitude1},#{longitude1}&daddr=#{latitude2},#{longitude2}&dirflg=w"
@@ -109,14 +108,24 @@ $(document).on "ready", () ->
           i++
 
   if Modernizr.geolocation
-    navigator.geolocation.getCurrentPosition (pos) ->
-      getStopInfos(pos.coords.latitude, pos.coords.longitude)
+    $(".waiting.main").removeClass("hide")
+    $(".address .default_message").removeClass("hide")
+    navigator.geolocation.getCurrentPosition(
+      (pos) ->
+        getStopInfos(pos.coords.latitude, pos.coords.longitude)
+      (error) ->
+        $(".waiting.main").addClass("hide")
+        $(".address .default_message").addClass("hide")
+        $(".form").toggleClass("hide")
+        true
+      {timeout: 5000}
+    )
   else
-    $(".form").removeClass("hide")
+    $(".form").toggleClass("hide")
 
   $(".do-displayForm").on "click", (e) ->
     e.preventDefault()
-    $(".form").removeClass("hide")
+    $(".form").toggleClass("hide")
 
   $(".form form").on "submit", (e) ->
     e.preventDefault()

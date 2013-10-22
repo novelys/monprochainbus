@@ -1,11 +1,10 @@
 .row
-  .span12
-    .pull-left
-      %small.address
-        %span.default_message.hide Géolocation en cours...
-        %span.text.hide
-    .pull-right
-      %small= link_to "Rentrer une adresse manuellement", "#", class: "do-displayForm"
+  .span6.address
+    %small
+      %span.default_message.hide Géolocation en cours...
+      %span.text.hide
+  .span6.toggle
+    %small= link_to "Rentrer une adresse manuellement", "#", class: "do-displayForm"
 .row.form.hide
   .span12.text-center
     %form.form-inline
