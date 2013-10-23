@@ -88,7 +88,7 @@ $(document).on "ready", () ->
                     direction_name = this.direction_name
                     scheduled_remaining_times = this.scheduled_remaining_times.join(", ")
                     new_node3 = $("
-                      <div class='row'>
+                      <div class='row-fluid'>
                         <div class='span12'>
                           <span class='line_direction'>
                             <i class='icomoon-#{mode}'></i>
