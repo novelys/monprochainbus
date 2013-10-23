@@ -10,7 +10,7 @@ class NextArrival
     res = response[:recherche_prochaines_arrivees_web_result][:liste_arrivee].try(:[], :arrivee)
     raise NoNextArrivals if res.blank?
     res = [res] unless res.is_a? Array
-    res.inject({}){|memo, obj|
+    first_pass = res.inject({}){|memo, obj|
       key = obj[:destination]
       if memo[ key ].present?
         memo[ key ][:schedules].push obj[:horaire]
@@ -28,6 +28,32 @@ class NextArrival
       end
       memo
     }.values
+
+    second_pass = first_pass.sort{|x,y|
+      comp = x[:line_name] <=> y[:line_name]
+      comp.zero? ? (x[:line_direction] <=> y[:line_direction]) : comp
+    }
+
+    third_pass = second_pass.inject({}){|memo, obj|
+      key = obj[:line_name]
+      if memo[ key ].blank?
+        memo[ key ] = {
+          line_name: obj[:line_name],
+          mode: obj[:mode],
+          line_directions: []
+        }
+      end
+
+      memo[ key ][ :line_directions ] << {
+        direction_name: obj[:line_direction],
+        schedules: obj[:schedules],
+        scheduled_remaining_times: obj[:scheduled_remaining_times]
+      }
+
+      memo
+    }.values
+
+    third_pass
   end
 
 private

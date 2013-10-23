@@ -47,7 +47,7 @@ $(document).on "ready", () ->
             <div class='row stop'>
               <div class='span12'>
                 <div class='row'>
-                  <div class='span9 offset3 text-left'>
+                  <div class='span6 offset3 text-left'>
                     <span class='stop_name'>#{ name }</span>
                     <i class='icon-spinner icon-spin secondary'></i>
                     <span class='distance'>
@@ -70,26 +70,38 @@ $(document).on "ready", () ->
               type: 'GET',
               dataType: 'json',
               success: (data2) ->
+                old_line_name = null
                 $(data2).each () ->
                   mode = this.mode
                   line_name = this.line_name
-                  line_direction = this.line_direction
-                  scheduled_remaining_times = this.scheduled_remaining_times.join(", ")
+                  line_mode = this.mode
                   new_node2 = $("
                     <div class='row next_arrival'>
-                      <div class='span6'>
+                      <div class='span1 offset3 line_name_block'>
                         <span class='#{mode}-#{line_name} line_name'>#{line_name}</span>
-                        <span class='line_direction'>
-                          <i class='icomoon-#{mode}'></i>
-                          <i class='icon-long-arrow-right'></i>
-                          #{line_direction}
-                        </span>
                       </div>
-                      <div class='span6'>
-                        <span class='scheduled_remaining_times'><i class='icon-time'></i> #{scheduled_remaining_times}</span>
+                      <div class='span5 line_directions'>
                       </div>
                     </div>
                   ")
+                  $(this.line_directions).each () ->
+                    direction_name = this.direction_name
+                    scheduled_remaining_times = this.scheduled_remaining_times.join(", ")
+                    new_node3 = $("
+                      <div class='row'>
+                        <div class='span12'>
+                          <span class='line_direction'>
+                            <i class='icomoon-#{mode}'></i>
+                            <i class='icon-long-arrow-right'></i>
+                            #{direction_name}
+                          </span>
+                        </div>
+                        <div class='span12'>
+                          <span class='scheduled_remaining_times'><i class='icon-time'></i> #{scheduled_remaining_times}</span>
+                        </div>
+                      </div>
+                    ")
+                    $(".line_directions", new_node2).append(new_node3)
                   $(".next_arrivals_list", new_node).append(new_node2)
               complete: (xhr, status) ->
                 $(".icon-spinner.secondary", new_node).addClass("hide")
