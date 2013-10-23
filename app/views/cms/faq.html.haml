@@ -1,32 +1,34 @@
-.row
+.row.cms
   .span6.offset3
-    %h3 Comment fonctionne ce site ?
+    %strong Comment fonctionne ce site ?
     %p
       MonProchainBus.eu utilise la fonction GPS de votre navigateur pour repérer votre position. Une fois votre position acquise, nous cherchons les 5 stations de bus ou de tram les plus proches de vous. Pour chaque station, nous demandons les 3 prochains horaires de passage.
-    %h3 Quelles sont les villes couvertes par ce service ?
+    %strong Quelles sont les villes couvertes par ce service ?
     %p
       Pour le moment, seules les villes desservies par la
       = link_to "CTS", "http://www.cts-strasbourg.eu/"
       sont couvertes (Strasbourg et Communauté Urbaine de Strasbourg).
-    %h3 Mon navigateur n'a pas de fonction GPS, est-ce que je peux quand même utiliser le site ?
+    %strong Mon navigateur n'a pas de fonction GPS, est-ce que je peux quand même utiliser le site ?
     %p
       Dans le cas où votre navigateur ne supporte pas la fonction GPS, vous pouvez entrer manuellement une adresse.
-    %h3 Je n'habite pas Strasbourg, comment puis-je tester le service ?
+    %strong Comment sont classées les stations ?
+    %p Les stations sont classées par distance à vol d'oiseau par rapport à votre position estimée. Puis, on rajoute le temps de marche estimée jusqu'aux stations.
+    %strong Je n'habite pas Strasbourg, comment puis-je tester le service ?
     %p
       Choisissez "rentrer une adresse manuellement" et rentrez l'adresse "15 route du Rhin Strasbourg".
-    %h3 D'où proviennent les données ?
+    %strong D'où proviennent les données ?
     %p
       Les données proviennent directement de la CTS, voir
       = link_to "portail Open Data de la CTS", "http://applis.cts-strasbourg.fr/cts_HorTRPortail/"
       \.
       Vous pouvez les remercier chaleureusement d'autoriser la réutilisation de leurs données.
-    %h3 C'est quoi l'Open Data ?
+    %strong C'est quoi l'Open Data ?
     %p
       = link_to "Open Data", "http://fr.wikipedia.org/wiki/Donn%C3%A9es_ouvertes"
-    %h3 Qui a développé cette application ?
+    %strong Qui a développé cette application ?
     %p
       = link_to "@yannski", "https://twitter.com/yannski"
-    %h3 Où puis-je poser mes autres questions ?
+    %strong Où puis-je poser mes autres questions ?
     %p
       Écrivez un mail à
       = mail_to "contact@monprochainbus.eu", "contact@monprochainbus.eu"
