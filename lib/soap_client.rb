@@ -12,7 +12,7 @@ class SoapClient < Savon::Client
           'MDP' => ENV['CTS_MDP']
         }
       },
-      wsdl: 'http://tr.cts-strasbourg.fr/HorTRwebserviceExtv3/Service.asmx?WSDL'
+      wsdl: 'http://opendata.cts-strasbourg.fr/webservice_v4/Service.asmx?WSDL'
     )
   end
 end
