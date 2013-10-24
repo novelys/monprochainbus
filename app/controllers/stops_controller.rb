@@ -4,8 +4,6 @@ class StopsController < ApplicationController
 
     respond_to do |format|
       format.html {
-        @main_app_name = "Bus"
-        @main_app_name = "Tram" if request.subdomains(0).any?{|x| x =~ /tram/ }
       }
       format.json {
         render json: Stop.near([params[:lat], params[:lng]], 1, :units => :km).to_json(methods: [:lat, :lng])
