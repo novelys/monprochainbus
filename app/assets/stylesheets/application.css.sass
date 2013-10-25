@@ -22,6 +22,12 @@ $navbarLinkColor:                 white
 @import flatdesign
 @import navbar
 
+.row-fluid [class*="span"]
+  min-height: 0
+
+.inline-block
+  display: inline-block
+
 .cms
   margin-top: 40px
   strong
@@ -65,13 +71,14 @@ footer
 
 .stops_list
   margin-top: 20px
-  & > .stop
-    display: none
+  .stop
     margin-bottom: 20px
     .stop_name
       font-size: 2em
       line-height: 1.6em
       font-weight: bold
+      margin-right: 20px
+    .secondary
       margin-right: 20px
     .distance
       display: inline-block
@@ -81,14 +88,14 @@ footer
         font-size: 80%
         &:hover
           text-decoration: none
-    .next_arrivals_list > .next_arrival
+    .lines_list .line
       border-bottom: 1px dashed #EEEEEE
       padding: 10px 0
-      &:first-child
+      &:first-of-type
         border-top: 1px dashed #EEEEEE
-      .line_directions > .row-fluid
+      .line_directions_list > .row-fluid
         margin-top: 10px
-        &:first-child
+        &:first-of-type
           margin-top: 0
         .span12
           margin-left: 0
@@ -112,7 +119,7 @@ footer
         display: inline-block
         font-size: 1.4em
         line-height: 1.4em
-        padding: 5px 0
+        padding: 0 0 5px 0
         margin-right: 5px
       .line_direction
         text-align: left
@@ -128,27 +135,24 @@ footer
         font-size: 1.4em
         line-height: 1.1em
 
-    &:nth-child(-n+5)
-      display: inherit
-
 @media screen and (max-width: 767px)
 
   .toggle
     text-align: left
 
   .stops_list
-    & > .stop
+    .stop
       .stop_name
         font-size: 1.8em
         line-height: 1.4em
-      .next_arrivals_list > .next_arrival
+      .lines_list .line
         padding: 5px 0 5px 10px
-        &:first-child
+        &:first-of-type
           padding-top: 5px
         .line_name_block
           width: 10%
           float: left
-        .line_directions
+        .line_directions_list
           width: 90%
           float: left
         .error
@@ -175,27 +179,27 @@ footer
     line-height: 1.4em
 
   .stops_list
-    & > .stop
+    .stop
       .stop_name
         font-size: 1.2em
         line-height: 1.2em
-      .next_arrivals_list > .next_arrival
+      .lines_list .line
         padding: 5px 0
         &:first-child
           padding: 5px 0
         .line_name_block
           width: 20%
           float: left
-        .line_directions
+        .line_directions_list
           width: 80%
           float: left
 
 @media screen and (min-width: 1200px)
 
   .stops_list
-    & > .stop
+    .stop
       .stop_name
-      .next_arrivals_list > .next_arrival
+      .lines_list .line
         margin-left: 0
         &:first-child
         .span6

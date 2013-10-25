@@ -1,0 +1,28 @@
+<nav class="navbar navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <div class="pull-left" style="display: none;">
+        <a class="refresh" href="#"><span class="icon-undo"></span>
+        </a>
+      </div>
+      <ul class="nav pull-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <span class="icon-ellipsis-vertical"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              {{#link-to "faq"}}FAQ{{/link-to}}
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="text-center">
+        {{#link-to "index" classNames="brand"}}
+          <i class="icomoon-bus"></i>
+          Mon Prochain Bus à Strasbourg
+        {{/link-to}}
+      </div>
+    </div>
+  </div>
+</nav>

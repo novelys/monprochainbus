@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="span6 address">
+    <small>
+      {{#if geolocalising}}
+        Géolocalisation en cours
+      {{/if}}
+      {{#if geolocalised}}
+        {{#if reverseGeocodedPosition}}
+          Votre position : <span class="inline-block">{{reverseGeocodedPosition}}</span>
+        {{else}}
+          Votre position : <span class="inline-block">{{position.lat}}, {{position.lng}}</span>
+        {{/if}}
+      {{/if}}
+    </small>
+  </div>
+  <div class="span6 toggle">
+    <small><a href="#" class="do-displayForm" {{action doDisplayForm}}>Rentrer une adresse manuellement</a></small>
+  </div>
+</div>
+{{#if geoAutocompleteDisplayForm}}
+<div class="row form">
+  <div class="span12 text-center">
+    <form class="form-inline" onSubmit="return false;">
+      <label class="input-xxlarge">
+      {{#if noGeoloc}}
+      Désolé, votre navigateur n'a pas de fonction de géolocalisation.
+      {{/if}}
+      {{#if geolocFailed}}
+      Désolé, votre navigateur n'a pas été en mesure de nous donner vos coordonnées géographiques dans le temps imparti.
+      {{/if}}
+      <br/>
+      Vous pouvez renseigner l'adresse de votre choix ci-dessous :
+      </label>
+      <br>
+      {{view Monprochainbus.AddressAutocompleteForm position="position"}}
+    </form>
+  </div>
+</div>
+{{/if}}
+{{#if geolocalisingOrStopsFetching}}
+<div class="row waiting main">
+  <div class="span12">
+    <i class="icon-spinner icon-spin main"></i>
+  </div>
+</div>
+{{/if}}
+{{#if stops}}
+<div class="stops_list">
+{{#each stops}}
+  {{partial 'stop'}}
+{{/each}}
+</div>
+{{/if}}

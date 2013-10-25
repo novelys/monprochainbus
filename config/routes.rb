@@ -3,12 +3,12 @@ Monprochainbus::Application.routes.draw do
   root 'stops#index'
 
   resources :stops do
-    member do
-      get 'next_arrivals'
-    end
+    resources :lines
   end
 
-  match '/faq' => 'cms#faq', via: [:get]
+  resources :lines
+
+  match '/faq' => 'stops#index', via: [:get]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

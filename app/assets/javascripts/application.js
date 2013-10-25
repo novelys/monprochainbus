@@ -13,6 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require modernizr.custom.88580
+//= require moment.min
 //=# require turbolinks
 //= require bootstrap-dropdown
-//= require_tree .
+//= require handlebars
+//= require ember
+//= require ember-data
+//= require_self
+//= require monprochainbus
+
+// for more details see: http://emberjs.com/guides/application/
+Monprochainbus = Ember.Application.create({
+  rootElement: '#ember'
+});

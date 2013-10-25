@@ -34,6 +34,8 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activemodel (4.0.0)
       activesupport (= 4.0.0)
       builder (~> 3.1.0)
@@ -55,6 +57,10 @@ GEM
     arel (4.0.0)
     atomic (1.1.14)
     awesome_print (1.2.0)
+    barber (0.4.2)
+      ember-source
+      execjs
+      handlebars-source
     better_errors (1.0.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -84,6 +90,18 @@ GEM
     dotenv (0.9.0)
     dotenv-rails (0.9.0)
       dotenv (= 0.9.0)
+    ember-data-source (1.0.0.beta.3)
+      ember-source
+    ember-rails (0.13.0)
+      active_model_serializers
+      barber (>= 0.4.1)
+      ember-data-source
+      ember-source
+      execjs (>= 1.2)
+      handlebars-source
+      railties (>= 3.1)
+    ember-source (1.1.1)
+      handlebars-source (= 1.0.12)
     erubis (2.7.0)
     execjs (2.0.2)
     font-awesome-rails (3.2.1.2)
@@ -98,6 +116,7 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
+    handlebars-source (1.0.12)
     hike (1.2.3)
     httpi (2.0.2)
       rack
@@ -218,6 +237,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   awesome_print
   better_errors
   binding_of_caller
@@ -225,6 +245,8 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   compass-rails (~> 2.0.alpha.0)
   dotenv-rails
+  ember-data-source (~> 1.0.0.beta.3)
+  ember-rails
   font-awesome-rails
   geocoder!
   haml-rails
