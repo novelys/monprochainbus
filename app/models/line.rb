@@ -20,7 +20,7 @@ class Line
     res = [res] unless res.is_a? Array
 
     ary = res.inject({}){|memo, obj|
-      scheduled_remaining_time = obj[:horaire]
+      scheduled_remaining_time = obj[:est_apres_minuit] ? (obj[:horaire] + 1.day) : obj[:horaire]
       mode = obj[:mode].to_s.downcase
       head, *tail = obj[:destination].split(" ")
       line_name = head
