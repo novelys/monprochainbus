@@ -7,9 +7,10 @@ class LinesController < ApplicationController
     threads = []
     @lines = []
     mutex = Mutex.new
+    now = Time.now
     @stops.each{|stop|
       threads << Thread.new {
-        res = stop.lines(number: 3)
+        res = stop.lines(number: 3, time: now)
         mutex.synchronize {
           @lines += res
         }

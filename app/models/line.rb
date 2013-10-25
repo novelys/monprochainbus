@@ -12,15 +12,12 @@ class Line
 
   def self.fetch(stop: stop, time: Time.now, number: 1)
     code = stop.code
-    response = cts_soap_client.call :recherche_prochaines_arrivees_web,
+    response = SoapClient.new.call :recherche_prochaines_arrivees_web,
       message: { code_arret: code, heure: time, nb_horaires: number}
     response = response.body[:recherche_prochaines_arrivees_web_response]
-    now = Time.now
     res = response[:recherche_prochaines_arrivees_web_result][:liste_arrivee].try(:[], :arrivee)
     raise NoNextArrivals if res.blank?
     res = [res] unless res.is_a? Array
-
-    now = Time.now
 
     ary = res.inject({}){|memo, obj|
       scheduled_remaining_time = obj[:horaire]
@@ -48,11 +45,5 @@ class Line
     ary.each{|x|
       x.line_directions.sort!{|x,y| x.name <=> y.name }
     }
-  end
-
-private
-
-  def self.cts_soap_client
-    @cts_soap_client ||= SoapClient.new
   end
 end

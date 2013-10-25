@@ -18,7 +18,6 @@ class Stop
   index({ coordinates: "2d" }, { min: -200, max: 200 })
 
   def lines(time: Time.now, number: 1)
-    time = Time.new(time) unless time.is_a? Time
     Line.fetch(stop: self, time: time, number: number)
   end
 
