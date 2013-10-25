@@ -10,10 +10,10 @@ class Line
     stop.slug
   end
 
-  def self.fetch(stop: stop, time: Time.now, number: 1)
+  def self.fetch(stop: stop, number: 1)
     code = stop.code
     response = SoapClient.new.call :recherche_prochaines_arrivees_web,
-      message: { code_arret: code, heure: time, nb_horaires: number}
+      message: { code_arret: code, nb_horaires: number}
     response = response.body[:recherche_prochaines_arrivees_web_response]
     res = response[:recherche_prochaines_arrivees_web_result][:liste_arrivee].try(:[], :arrivee)
     raise NoNextArrivals if res.blank?
