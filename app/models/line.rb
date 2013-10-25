@@ -22,7 +22,7 @@ class Line
     raise NoNextArrivals if res.blank?
     res = [res] unless res.is_a? Array
 
-    now = Time.now
+    now = Time.zone.now
 
     ary = res.inject({}){|memo, obj|
       hour, min, sec = obj[:horaire].split(":")
