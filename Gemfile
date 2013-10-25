@@ -52,8 +52,7 @@ end
 # templates
 gem 'rabl' # json templates
 
-gem 'savon' # soap client
-gem 'nokogiri'
+gem 'savon', '~> 2.3.0' # soap client
 gem 'mongoid_slug', github: 'nofxx/mongoid-slug'
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'geocoder', github: 'alexreisner/geocoder'
