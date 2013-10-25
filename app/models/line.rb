@@ -12,15 +12,22 @@ class Line
 
   def self.fetch(stop: stop, number: 1)
     code = stop.code
-    response = SoapClient.new.call :recherche_prochaines_arrivees_web,
+    response = SoapClient.new.call(:recherche_prochaines_arrivees_web,
       message: { code_arret: code, nb_horaires: number}
+    ) do
+       advanced_typecasting false
+    end
     response = response.body[:recherche_prochaines_arrivees_web_response]
     res = response[:recherche_prochaines_arrivees_web_result][:liste_arrivee].try(:[], :arrivee)
     raise NoNextArrivals if res.blank?
     res = [res] unless res.is_a? Array
 
+    now = Time.now
+
     ary = res.inject({}){|memo, obj|
-      scheduled_remaining_time = obj[:est_apres_minuit] ? (obj[:horaire] + 1.day) : obj[:horaire]
+      hour, min, sec = obj[:horaire].split(":")
+      scheduled_remaining_time = now.change(hour: hour, min: min, sec: sec)
+      scheduled_remaining_time += 1.day if obj[:est_apres_minuit] == "true" && now <= now.end_of_day && now >= (now.end_of_day - 3.hours)
       mode = obj[:mode].to_s.downcase
       head, *tail = obj[:destination].split(" ")
       line_name = head
