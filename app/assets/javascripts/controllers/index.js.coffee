@@ -43,7 +43,9 @@ Monprochainbus.IndexController = Ember.Controller.extend
   fetchNextArrivals: (() ->
     stops = @get("stops")
     stop_ids = @stops.mapBy("id")
+    @set("linesFetching", true)
     $.getJSON("/lines", {stop_ids: stop_ids}).then( (lines) =>
+      @set("linesFetching", false)
       $.each lines.lines, (index, line) =>
         stop = stops.findBy("id", line.stop_id)
         line.stop = stop

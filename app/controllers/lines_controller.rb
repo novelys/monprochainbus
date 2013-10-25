@@ -9,7 +9,11 @@ class LinesController < ApplicationController
     mutex = Mutex.new
     @stops.each{|stop|
       threads << Thread.new {
-        res = stop.lines(number: 3)
+        begin
+          res = stop.lines(number: 3)
+        rescue NoNextArrivals
+          res = []
+        end
         mutex.synchronize {
           @lines += res
         }
