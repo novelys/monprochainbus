@@ -19,6 +19,9 @@
     = stylesheet_link_tag "application", media: "all"
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Oswald:300"
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Droid+Sans:400,700"
+    / HTML5 shim, for IE6-8 support of HTML5 elements
+    /[if lt IE 9]
+      <script src="../assets/js/html5shiv.js"></script>
     = favicon_link_tag '/favicon.ico'
     = csrf_meta_tags
   %body
