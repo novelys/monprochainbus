@@ -12,11 +12,7 @@ module SCTableViewControllerDelegate
       view.addSubview(headerLabel)
       view
     else
-      view = UILabel.alloc.initWithFrame(CGRectMake(10, 0, 46, 28))
-      view.text = model.name
-      view.font = UIFont.fontWithName("Droid Sans", size:18)
-      view.setTextAlignment(UITextAlignmentCenter)
-      view
+      super
     end
   end
 
@@ -24,7 +20,7 @@ module SCTableViewControllerDelegate
     if section > 0
       38
     else
-      44
+      super
     end
   end
 

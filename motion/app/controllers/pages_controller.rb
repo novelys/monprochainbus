@@ -3,11 +3,13 @@ class PagesController < UIViewController
   include PCPageViewControllerDelegate
 
   attr_reader :currentLocation
+  attr_accessor :defaultTitle
 
   def init
     self.initWithNibName(nil, bundle: nil)
     self.view.backgroundColor = UIColor.groupTableViewBackgroundColor
-    self.title = "Mon Prochain Bus"
+    self.defaultTitle = "Mon Prochain Bus"
+    self.title = self.defaultTitle
 
     @pagesShown = false
 
@@ -26,6 +28,7 @@ class PagesController < UIViewController
     updatePageControllerFrame
   end
 
+  ## Actions
   def refresh
     hidePages
     clearModels
@@ -41,14 +44,15 @@ class PagesController < UIViewController
   end
 
   ## UI Bits
-  def barButtonItem
-    return @barButtonItem if @barButtonItem
 
-    @barButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemRefresh,
+  def refreshButtonItem
+    return @refreshButtonItem if @refreshButtonItem
+
+    @refreshButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemRefresh,
                                                                       target: self,
                                                                       action: 'refresh')
-    @barButtonItem.tintColor = UIColor.whiteColor
-    @barButtonItem
+    @refreshButtonItem.tintColor = UIColor.whiteColor
+    @refreshButtonItem
   end
 
   def spinner
@@ -85,7 +89,7 @@ class PagesController < UIViewController
   end
 
   def stopSpinner
-    navigationItem.rightBarButtonItem = barButtonItem
+    navigationItem.rightBarButtonItem = refreshButtonItem
     spinner.stopAnimating
     spinner.removeFromSuperview
   end
@@ -145,6 +149,7 @@ class PagesController < UIViewController
 
   def hidePages
     navigationItem.rightBarButtonItem = nil
+    self.title = self.defaultTitle
 
     return if pagesHidden?
 
@@ -155,11 +160,12 @@ class PagesController < UIViewController
   end
 
   def presentPages
-    navigationItem.rightBarButtonItem = barButtonItem
+    navigationItem.rightBarButtonItem = refreshButtonItem
 
     return if pagesShown?
 
-    pageController.setViewControllers([viewControllerAtIndex(0)],
+    viewController = viewControllerAtIndex(0)
+    pageController.setViewControllers([viewController],
                                       direction: UIPageViewControllerNavigationDirectionForward,
                                       animated: false,
                                       completion: nil)
@@ -167,6 +173,8 @@ class PagesController < UIViewController
     addChildViewController(pageController)
     view.addSubview(self.pageController.view)
     pageController.didMoveToParentViewController(self)
+
+    self.title = viewController.title
 
     @pagesShown = true
   end
@@ -194,6 +202,7 @@ class PagesController < UIViewController
           activityLabel.text = "Localisation inconnue..."
         end
 
+        self.title = self.defaultTitle
         stopSpinner
       else
         location = result[:to]
@@ -218,6 +227,8 @@ class PagesController < UIViewController
 
         if json['stops'].none?
           activityLabel.text = "Aucun arrêt à proximité."
+
+          self.title = self.defaultTitle
           stopSpinner
         else
           stops = Stop.loadFromJson(json)
@@ -226,6 +237,8 @@ class PagesController < UIViewController
         end
       else
         activityLabel.text = "Le service n'est pas joignable."
+
+        self.title = self.defaultTitle
         stopSpinner
       end
     end
@@ -243,6 +256,8 @@ class PagesController < UIViewController
         block.call(json)
       else
         activityLabel.text = "Le service n'est pas joignable."
+
+        self.title = self.defaultTitle
         stopSpinner
       end
     end
