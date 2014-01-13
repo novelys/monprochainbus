@@ -21,13 +21,7 @@ class AppDelegate
     return @navController if @navController
 
     @navController = UINavigationController.alloc.initWithRootViewController(rootController)
-    @navController.navigationBar.barTintColor = AppColors.mainGreen
     @navController.navigationBar.translucent = true
-    @navController.navigationBar.tintColor = UIColor.blackColor
-    @navController.navigationBar.titleTextAttributes = {
-      UITextAttributeFont      => UIFont.fontWithName('Oswald', size: 21.0),
-      UITextAttributeTextColor => UIColor.whiteColor
-    }
 
     @navController
   end
@@ -35,6 +29,15 @@ class AppDelegate
   def setupGlobalStyles
     ## Status bar
     app.statusBarStyle = UIStatusBarStyleLightContent
+
+    ## Nav Bar
+    navBarProxy = UINavigationBar.appearance
+    navBarProxy.barTintColor = AppColors.mainGreen
+    navBarProxy.tintColor = UIColor.blackColor
+    navBarProxy.titleTextAttributes = {
+      UITextAttributeFont      => UIFont.fontWithName('Oswald', size: 21.0),
+      UITextAttributeTextColor => UIColor.whiteColor
+    }
 
     ## Pager items
     pageControlProxy = UIPageControl.appearance
