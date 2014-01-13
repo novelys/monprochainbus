@@ -1,0 +1,18 @@
+# -*- coding: utf-8 -*-
+$:.unshift("/Library/RubyMotion/lib")
+require 'motion/project/template/ios'
+
+begin
+  require 'bundler'
+  Bundler.require
+rescue LoadError
+end
+
+Motion::Project::App.setup do |app|
+  # Use `rake config' to see complete project settings.
+  app.name = 'ProchainBus'
+  app.fonts = ['icomoon.ttf', 'oswald.light.ttf', 'DroidSans-Bold.ttf']
+  app.codesign_certificate = "iPhone Developer: Kevin Soltysiak (J67TCWDX9Z)"
+  app.info_plist['UIViewControllerBasedStatusBarAppearance'] = false
+  app.icons = ["icon-40.png", "icon-76.png", "icon-80.png", "icon@-120.png", "icon-152.png"]
+end
