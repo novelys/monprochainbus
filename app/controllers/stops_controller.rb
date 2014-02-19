@@ -4,6 +4,7 @@ class StopsController < ApplicationController
 
     respond_to do |format|
       format.html {
+        expires_in 10.minutes, :public => true
         render nothing: true, layout: true
       }
       format.json {
