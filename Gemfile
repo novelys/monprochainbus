@@ -63,6 +63,3 @@ gem 'time_diff'
 gem 'ember-rails'
 gem 'ember-data-source', '~> 1.0.0.beta.3'
 gem 'active_model_serializers'
-
-
-gem 'mongo'
