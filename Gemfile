@@ -65,4 +65,4 @@ gem 'ember-data-source', '~> 1.0.0.beta.3'
 gem 'active_model_serializers'
 
 
-gem 'mongo', github: 'mongodb/mongo-ruby-driver'
+gem 'mongo'
