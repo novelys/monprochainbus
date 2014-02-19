@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
-gem 'rails_12factor'
+gem 'rails', '~> 4.0.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -49,18 +48,21 @@ end
 
 group :production do
   gem 'puma'
+  gem 'rails_12factor'
 end
 
 # templates
 gem 'rabl' # json templates
 
 gem 'savon', '~> 2.3.0' # soap client
-gem 'mongoid_slug', github: 'nofxx/mongoid-slug'
-gem 'mongoid', github: 'mongoid/mongoid'
-gem 'geocoder', github: 'alexreisner/geocoder'
+gem 'mongoid_slug'
+gem 'mongoid', '~> 4.0.0.beta1 '
+gem 'geocoder'
 gem 'rails-i18n'
 gem 'time_diff'
-gem 'newrelic_rpm'
 gem 'ember-rails'
 gem 'ember-data-source', '~> 1.0.0.beta.3'
 gem 'active_model_serializers'
+
+
+gem 'mongo', github: 'mongodb/mongo-ruby-driver'
