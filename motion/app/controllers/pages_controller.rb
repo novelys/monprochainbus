@@ -43,39 +43,7 @@ class PagesController < UIViewController
     end
   end
 
-  def locationController
-    return @navController if @navController
-
-    @locationController ||= LocationController.alloc.init
-    @navController ||= UINavigationController.alloc.initWithRootViewController(@locationController)
-    @navController.navigationBar.translucent = true
-    @navController
-  end
-
-  def changeLocation
-    self.presentViewController(locationController, animated:true, completion: nil)
-  end
-
   ## UI Bits
-  def enableButtonItems
-    navigationItem.rightBarButtonItem = refreshButtonItem
-    navigationItem.leftBarButtonItem = locationButtonItem
-  end
-
-  def disableButtonItems
-    navigationItem.rightBarButtonItem = nil
-    navigationItem.leftBarButtonItem = nil
-  end
-
-  def locationButtonItem
-    return @locationButtonItem if @locationButtonItem
-
-    @locationButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemSearch,
-                                                                      target: self,
-                                                                      action: 'changeLocation')
-    @locationButtonItem.tintColor = UIColor.whiteColor
-    @locationButtonItem
-  end
 
   def refreshButtonItem
     return @refreshButtonItem if @refreshButtonItem
@@ -121,7 +89,7 @@ class PagesController < UIViewController
   end
 
   def stopSpinner
-    enableButtonItems
+    navigationItem.rightBarButtonItem = refreshButtonItem
     spinner.stopAnimating
     spinner.removeFromSuperview
   end
@@ -180,7 +148,7 @@ class PagesController < UIViewController
   end
 
   def hidePages
-    disableButtonItems
+    navigationItem.rightBarButtonItem = nil
     self.title = self.defaultTitle
 
     return if pagesHidden?
@@ -192,7 +160,7 @@ class PagesController < UIViewController
   end
 
   def presentPages
-    enableButtonItems
+    navigationItem.rightBarButtonItem = refreshButtonItem
 
     return if pagesShown?
 
