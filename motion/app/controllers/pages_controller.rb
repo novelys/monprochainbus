@@ -31,7 +31,7 @@ class PagesController < UIViewController
   ## Actions
   def refresh
     hidePages
-    clearModels
+    clearData
 
     getLocation do
       getStops do
@@ -212,7 +212,10 @@ class PagesController < UIViewController
   end
 
   ## Domain logic
-  def clearModels
+  def clearData
+    @childControllers = nil
+
+    ## Clear models
     Direction.delete_all
     Line.delete_all
     Stop.delete_all
