@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     bubble-wrap (1.4.0)
+    dotenv (0.9.0)
     rake (10.1.1)
 
 PLATFORMS
@@ -9,4 +10,5 @@ PLATFORMS
 
 DEPENDENCIES
   bubble-wrap
+  dotenv
   rake

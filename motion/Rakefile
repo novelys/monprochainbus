@@ -8,12 +8,16 @@ begin
 rescue LoadError
 end
 
+defined?(Dotenv) && Dotenv.load
+
 Motion::Project::App.setup do |app|
-  # Use `rake config' to see complete project settings.
-  app.name       = 'ProchainBus'
-  app.identifier = "45V425LRSB.com.novelys.monprochainbus"
-  app.fonts      = ['icomoon.ttf', 'oswald.light.ttf', 'DroidSans-Bold.ttf']
-  app.icons      = ["icon-40.png", "icon-76.png", "icon-80.png", "icon@-120.png", "icon-152.png"]
+  app.name                 = 'ProchainBus'
+  app.sdk_version          = '7.0'
+  app.version              = '1'
+  app.identifier           = "com.novelys.com.monprochainbus"
+  app.fonts                = ['icomoon.ttf', 'oswald.light.ttf', 'DroidSans-Bold.ttf']
+  app.icons                = ["icon-40.png", "icon-76.png", "icon-80.png", "icon-120.png", "icon-152.png"]
+  app.provisioning_profile = ENV['PROVISIONING'] if ENV['PROVISIONING']
 
   app.info_plist['UIViewControllerBasedStatusBarAppearance'] = false
 end
