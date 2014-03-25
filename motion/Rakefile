@@ -13,7 +13,8 @@ defined?(Dotenv) && Dotenv.load
 Motion::Project::App.setup do |app|
   app.name                 = 'ProchainBus'
   app.sdk_version          = '7.0'
-  app.version              = '1'
+  app.version              = '2'
+  app.short_version        = '2'
   app.identifier           = "com.novelys.com.monprochainbus"
   app.fonts                = ['icomoon.ttf', 'oswald.light.ttf', 'DroidSans-Bold.ttf']
   app.icons                = ["icon-40.png", "icon-76.png", "icon-80.png", "icon-120.png", "icon-152.png"]
