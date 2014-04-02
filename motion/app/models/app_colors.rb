@@ -42,5 +42,12 @@ class AppColors
     alias :bus72  :bus13
     alias :bus40  :bus30
     alias :bus50  :bus30
+
+    ## CatchAll
+    def method_missing(name, *args, &block)
+      if name.to_s.start_with?('bus')
+        tramA
+      end
+    end
   end
 end
