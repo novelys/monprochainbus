@@ -1,1 +1,0 @@
-../../Airbrake-iOS/Airbrake/notifier/ABNotifierFunctions.h
