@@ -51,7 +51,7 @@ class AppDelegate
   def setupNotifier
     if ENV['AIRBRAKE_KEY']
       ABNotifier.startNotifierWithAPIKey(ENV['AIRBRAKE_KEY'],
-        environmentName: (ENV['AIRBRAKE_ENV'] || ABNotifierAutomaticEnvironment),
+        environmentName: (ABNotifierAutomaticEnvironment),
         useSSL:true,
         delegate:self
       )
