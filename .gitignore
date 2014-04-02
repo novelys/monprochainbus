@@ -32,3 +32,6 @@ nbproject
 *.sw[po]
 .eprj
 .idea
+
+/motion/vendor/Pods/build*
+/motion/vendor/Pods/.build
