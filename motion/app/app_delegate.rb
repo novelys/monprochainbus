@@ -2,6 +2,8 @@ class AppDelegate
   attr_reader :app, :window
 
   def application(application, didFinishLaunchingWithOptions: launchOptions)
+    setupNotifier
+
     @app = application
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
 
@@ -44,5 +46,15 @@ class AppDelegate
     pageControlProxy.pageIndicatorTintColor = UIColor.lightGrayColor
     pageControlProxy.currentPageIndicatorTintColor = AppColors.mainGreen
     pageControlProxy.backgroundColor = UIColor.clearColor
+  end
+
+  def setupNotifier
+    if ENV['AIRBRAKE_KEY']
+      ABNotifier.startNotifierWithAPIKey(ENV['AIRBRAKE_KEY'],
+        environmentName: (ENV['AIRBRAKE_ENV'] || ABNotifierAutomaticEnvironment),
+        useSSL:true,
+        delegate:self
+      )
+    end
   end
 end
