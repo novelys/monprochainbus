@@ -3,3 +3,4 @@ source 'https://rubygems.org'
 gem 'rake'
 gem 'bubble-wrap', require: %w(bubble-wrap bubble-wrap/location)
 gem 'dotenv'
+gem 'motion-cocoapods', '~> 1.4.0'
