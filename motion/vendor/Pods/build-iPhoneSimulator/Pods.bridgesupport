@@ -1,0 +1,771 @@
+<?xml version='1.0'?>
+<signatures version='1.0'>
+<struct name='ab_signal_info_t' type='{ab_signal_info_t=&quot;notice_path&quot;*&quot;notice_payload_length&quot;L&quot;notice_payload&quot;^v&quot;user_data_length&quot;L&quot;user_data&quot;^v}' type64='{ab_signal_info_t=&quot;notice_path&quot;*&quot;notice_payload_length&quot;Q&quot;notice_payload&quot;^v&quot;user_data_length&quot;Q&quot;user_data&quot;^v}'>
+<field const='true' declared_type='char*' name='notice_path' type='*'/>
+<field declared_type='unsigned long' name='notice_payload_length' type='L' type64='Q'/>
+<field declared_type='void*' name='notice_payload' type='^v'/>
+<field declared_type='unsigned long' name='user_data_length' type='L' type64='Q'/>
+<field declared_type='void*' name='user_data' type='^v'/>
+</struct>
+<opaque name='xmlKindPtr' type='^{_xmlKind=}'/>
+<opaque name='xmlStdPtr' type='^{_xmlStd=}'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierAdHocEnvironment' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierAppStoreEnvironment' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierApplicationVersionKey' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierAutomaticEnvironment' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierBundleVersionKey' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierCallStackKey' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierControllerKey' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierDevelopmentEnvironment' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierDidDismissAlertNotification' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierDidPostNoticesNotification' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierEnvironmentNameKey' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierExceptionNameKey' type='@'/>
+<constant const='true' declared_type='int' name='ABNotifierExceptionNoticeType' type='i'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierExceptionParametersKey' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierExceptionReasonKey' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierExecutableKey' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierNoticePathExtension' type='@'/>
+<constant const='true' declared_type='int' name='ABNotifierNoticeVersion' type='i'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierOperatingSystemVersionKey' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierPlatformNameKey' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierReleaseEnvironment' type='@'/>
+<constant const='true' declared_type='int' name='ABNotifierSignalNoticeType' type='i'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierVersion' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierWillDisplayAlertNotification' type='@'/>
+<constant const='true' declared_type='NSString*' name='ABNotifierWillPostNoticesNotification' type='@'/>
+<constant declared_type='ab_signal_info_t' name='ab_signal_info' type='{ab_signal_info_t=*L^vL^v}' type64='{ab_signal_info_t=*Q^vQ^v}'/>
+<string_constant name='DDLastErrorKey' nsstring='true' value='DDXML:LastError'/>
+<enum name='COCOAPODS_VERSION_MAJOR_Airbrake_iOS' value='3'/>
+<enum name='COCOAPODS_VERSION_MAJOR_KissXML' value='5'/>
+<enum name='COCOAPODS_VERSION_MINOR_Airbrake_iOS' value='1'/>
+<enum name='COCOAPODS_VERSION_MINOR_KissXML' value='0'/>
+<enum name='COCOAPODS_VERSION_PATCH_Airbrake_iOS' value='0'/>
+<enum name='COCOAPODS_VERSION_PATCH_KissXML' value='0'/>
+<enum name='DDXMLAttributeDeclarationKind' value='10'/>
+<enum name='DDXMLAttributeKind' value='3'/>
+<enum name='DDXMLCommentKind' value='6'/>
+<enum name='DDXMLDTDKind' value='8'/>
+<enum name='DDXMLDocumentHTMLKind' value='2'/>
+<enum name='DDXMLDocumentKind' value='1'/>
+<enum name='DDXMLDocumentTextKind' value='3'/>
+<enum name='DDXMLDocumentXHTMLKind' value='1'/>
+<enum name='DDXMLDocumentXMLKind' value='0'/>
+<enum name='DDXMLElementDeclarationKind' value='11'/>
+<enum name='DDXMLElementKind' value='2'/>
+<enum name='DDXMLEntityDeclarationKind' value='9'/>
+<enum name='DDXMLInvalidKind' value='0'/>
+<enum name='DDXMLNamespaceKind' value='4'/>
+<enum name='DDXMLNodeCompactEmptyElement' value='4'/>
+<enum name='DDXMLNodeExpandEmptyElement' value='2'/>
+<enum name='DDXMLNodeOptionsNone' value='0'/>
+<enum name='DDXMLNodePrettyPrint' value='131072'/>
+<enum name='DDXMLNotationDeclarationKind' value='12'/>
+<enum name='DDXMLProcessingInstructionKind' value='5'/>
+<enum name='DDXMLTextKind' value='7'/>
+<enum name='DDXML_DEBUG_MEMORY_ISSUES' value='0'/>
+<function name='ABNotifierActionFromParsedCallStack'>
+<arg declared_type='NSArray*' name='callStack' type='@'/>
+<arg declared_type='NSString*' name='executable' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='ABNotifierApplicationName'>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='ABNotifierApplicationVersion'>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='ABNotifierCurrentViewController'>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='ABNotifierMachineName'>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='ABNotifierOpenNewNoticeFile'>
+<arg const='true' declared_type='char*' name='path' type='*'/>
+<arg declared_type='int' name='type' type='i'/>
+<retval declared_type='int' type='i'/>
+</function>
+<function name='ABNotifierOperatingSystemVersion'>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='ABNotifierParseCallStack'>
+<arg declared_type='NSArray*' name='callStack' type='@'/>
+<retval declared_type='NSArray*' type='@'/>
+</function>
+<function name='ABNotifierPlatformName'>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='ABNotifierResidentMemoryUsage'>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='ABNotifierStartExceptionHandler'>
+<retval declared_type='void' type='v'/>
+</function>
+<function name='ABNotifierStartSignalHandler'>
+<retval declared_type='void' type='v'/>
+</function>
+<function name='ABNotifierStopExceptionHandler'>
+<retval declared_type='void' type='v'/>
+</function>
+<function name='ABNotifierStopSignalHandler'>
+<retval declared_type='void' type='v'/>
+</function>
+<function name='ABNotifierVirtualMemoryUsage'>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='ABNotifierVisibleViewControllerFromViewController'>
+<arg declared_type='UIViewController*' name='controller' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='DDXMLIsZombie'>
+<arg declared_type='void*' name='xmlPtr' type='^v'/>
+<arg declared_type='DDXMLNode*' name='wrapper' type='@'/>
+<retval declared_type='BOOL' type='B'/>
+</function>
+<function inline='true' name='IsXmlAttrPtr'>
+<arg declared_type='void*' name='kindPtr' type='^v'/>
+<retval declared_type='BOOL' type='B'/>
+</function>
+<function inline='true' name='IsXmlDocPtr'>
+<arg declared_type='void*' name='kindPtr' type='^v'/>
+<retval declared_type='BOOL' type='B'/>
+</function>
+<function inline='true' name='IsXmlDtdPtr'>
+<arg declared_type='void*' name='kindPtr' type='^v'/>
+<retval declared_type='BOOL' type='B'/>
+</function>
+<function inline='true' name='IsXmlNodePtr'>
+<arg declared_type='void*' name='kindPtr' type='^v'/>
+<retval declared_type='BOOL' type='B'/>
+</function>
+<function inline='true' name='IsXmlNsPtr'>
+<arg declared_type='void*' name='kindPtr' type='^v'/>
+<retval declared_type='BOOL' type='B'/>
+</function>
+<class name='ABNotice'>
+<method selector='hoptoadXMLString'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='initWithContentsOfFile:'>
+<arg declared_type='NSString*' index='0' name='path' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='noticeWithContentsOfFile:'>
+<arg declared_type='NSString*' index='0' name='path' type='@'/>
+<retval declared_type='ABNotice*' type='@'/>
+</method>
+</class>
+<class name='ABNotifier'>
+<method class_method='true' selector='APIKey'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method class_method='true' selector='addEnvironmentEntriesFromDictionary:'>
+<arg declared_type='NSDictionary*' index='0' name='dictionary' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='environmentValueForKey:'>
+<arg declared_type='NSString*' index='0' name='key' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method class_method='true' selector='logException:'>
+<arg declared_type='NSException*' index='0' name='exception' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='logException:parameters:'>
+<arg declared_type='NSException*' index='0' name='exception' type='@'/>
+<arg declared_type='NSDictionary*' index='1' name='parameters' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='removeEnvironmentValueForKey:'>
+<arg declared_type='NSString*' index='0' name='key' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='removeEnvironmentValuesForKeys:'>
+<arg declared_type='NSArray*' index='0' name='keys' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='setEnvironmentValue:forKey:'>
+<arg declared_type='NSString*' index='0' name='value' type='@'/>
+<arg declared_type='NSString*' index='1' name='key' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='startNotifierWithAPIKey:environmentName:useSSL:delegate:'>
+<arg declared_type='NSString*' index='0' name='key' type='@'/>
+<arg declared_type='NSString*' index='1' name='name' type='@'/>
+<arg declared_type='BOOL' index='2' name='useSSL' type='B'/>
+<arg declared_type='id' index='3' name='delegate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='startNotifierWithAPIKey:environmentName:useSSL:delegate:installExceptionHandler:installSignalHandler:'>
+<arg declared_type='NSString*' index='0' name='key' type='@'/>
+<arg declared_type='NSString*' index='1' name='name' type='@'/>
+<arg declared_type='BOOL' index='2' name='useSSL' type='B'/>
+<arg declared_type='id' index='3' name='delegate' type='@'/>
+<arg declared_type='BOOL' index='4' name='exception' type='B'/>
+<arg declared_type='BOOL' index='5' name='signal' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='startNotifierWithAPIKey:environmentName:useSSL:delegate:installExceptionHandler:installSignalHandler:displayUserPrompt:'>
+<arg declared_type='NSString*' index='0' name='key' type='@'/>
+<arg declared_type='NSString*' index='1' name='name' type='@'/>
+<arg declared_type='BOOL' index='2' name='useSSL' type='B'/>
+<arg declared_type='id' index='3' name='delegate' type='@'/>
+<arg declared_type='BOOL' index='4' name='exception' type='B'/>
+<arg declared_type='BOOL' index='5' name='signal' type='B'/>
+<arg declared_type='BOOL' index='6' name='display' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='writeTestNotice'>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='DDXMLAttributeNode'>
+<method selector='initWithAttrPrimitive:owner:'>
+<arg declared_type='id' index='0' name='attr' type='@'/>
+<arg declared_type='DDXMLNode*' index='1' name='owner' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='nodeWithAttrPrimitive:owner:'>
+<arg declared_type='id' index='0' name='attr' type='@'/>
+<arg declared_type='DDXMLNode*' index='1' name='owner' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='DDXMLDocument'>
+<method selector='XMLData'>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='XMLDataWithOptions:'>
+<arg declared_type='NSUInteger' index='0' name='options' type='I' type64='Q'/>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='initWithData:options:error:'>
+<arg declared_type='NSData*' index='0' name='data' type='@'/>
+<arg declared_type='NSUInteger' index='1' name='mask' type='I' type64='Q'/>
+<arg declared_type='NSError**' index='2' name='error' type='^@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithDocPrimitive:owner:'>
+<arg declared_type='id' index='0' name='doc' type='@'/>
+<arg declared_type='DDXMLNode*' index='1' name='owner' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithXMLString:options:error:'>
+<arg declared_type='NSString*' index='0' name='string' type='@'/>
+<arg declared_type='NSUInteger' index='1' name='mask' type='I' type64='Q'/>
+<arg declared_type='NSError**' index='2' name='error' type='^@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='nodeWithDocPrimitive:owner:'>
+<arg declared_type='id' index='0' name='doc' type='@'/>
+<arg declared_type='DDXMLNode*' index='1' name='owner' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='rootElement'>
+<retval declared_type='DDXMLElement*' type='@'/>
+</method>
+</class>
+<class name='DDXMLElement'>
+<method selector='_recursiveResolveNamespaceForPrefix:atNode:'>
+<arg declared_type='NSString*' index='0' name='prefix' type='@'/>
+<arg declared_type='id' index='1' name='nodePtr' type='@'/>
+<retval declared_type='DDXMLNode*' type='@'/>
+</method>
+<method selector='_recursiveResolvePrefixForURI:atNode:'>
+<arg declared_type='NSString*' index='0' name='uri' type='@'/>
+<arg declared_type='id' index='1' name='nodePtr' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='addAttribute:'>
+<arg declared_type='DDXMLNode*' index='0' name='attribute' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='addAttributeWithName:stringValue:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSString*' index='1' name='string' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='addChild:'>
+<arg declared_type='DDXMLNode*' index='0' name='child' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='addNamespace:'>
+<arg declared_type='DDXMLNode*' index='0' name='aNamespace' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='attributeForName:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<retval declared_type='DDXMLNode*' type='@'/>
+</method>
+<method selector='attributes'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='attributesAsDictionary'>
+<retval declared_type='NSDictionary*' type='@'/>
+</method>
+<method selector='compactXMLString'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='elementForName:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<retval declared_type='DDXMLElement*' type='@'/>
+</method>
+<method selector='elementForName:xmlns:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSString*' index='1' name='xmlns' type='@'/>
+<retval declared_type='DDXMLElement*' type='@'/>
+</method>
+<method class_method='true' selector='elementWithName:xmlns:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSString*' index='1' name='ns' type='@'/>
+<retval declared_type='DDXMLElement*' type='@'/>
+</method>
+<method selector='elementsForLocalName:URI:'>
+<arg declared_type='NSString*' index='0' name='localName' type='@'/>
+<arg declared_type='NSString*' index='1' name='URI' type='@'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='elementsForName:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='initWithElementPrimitive:owner:'>
+<arg declared_type='id' index='0' name='node' type='@'/>
+<arg declared_type='DDXMLNode*' index='1' name='owner' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithName:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithName:URI:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSString*' index='1' name='URI' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithName:stringValue:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSString*' index='1' name='string' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithXMLString:error:'>
+<arg declared_type='NSString*' index='0' name='string' type='@'/>
+<arg declared_type='NSError**' index='1' name='error' type='^@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='insertChild:atIndex:'>
+<arg declared_type='DDXMLNode*' index='0' name='child' type='@'/>
+<arg declared_type='NSUInteger' index='1' name='index' type='I' type64='Q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='namespaceForPrefix:'>
+<arg declared_type='NSString*' index='0' name='prefix' type='@'/>
+<retval declared_type='DDXMLNode*' type='@'/>
+</method>
+<method selector='namespaces'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method class_method='true' selector='nodeWithElementPrimitive:owner:'>
+<arg declared_type='id' index='0' name='node' type='@'/>
+<arg declared_type='DDXMLNode*' index='1' name='owner' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='prettyXMLString'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='removeAttributeForName:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='removeChildAtIndex:'>
+<arg declared_type='NSUInteger' index='0' name='index' type='I' type64='Q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='removeNamespaceForPrefix:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='resolveNamespaceForName:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<retval declared_type='DDXMLNode*' type='@'/>
+</method>
+<method selector='resolvePrefixForNamespaceURI:'>
+<arg declared_type='NSString*' index='0' name='namespaceURI' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='setAttributes:'>
+<arg declared_type='NSArray*' index='0' name='attributes' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setChildren:'>
+<arg declared_type='NSArray*' index='0' name='children' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setNamespaces:'>
+<arg declared_type='NSArray*' index='0' name='namespaces' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setXmlns:'>
+<arg declared_type='NSString*' index='0' name='ns' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='xmlns'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='DDXMLNamespaceNode'>
+<method selector='_nsParentPtr'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='_setNsParentPtr:'>
+<arg declared_type='id' index='0' name='parentPtr' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='initWithNsPrimitive:nsParent:owner:'>
+<arg declared_type='id' index='0' name='ns' type='@'/>
+<arg declared_type='id' index='1' name='parent' type='@'/>
+<arg declared_type='DDXMLNode*' index='2' name='owner' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='nodeWithNsPrimitive:nsParent:owner:'>
+<arg declared_type='id' index='0' name='ns' type='@'/>
+<arg declared_type='id' index='1' name='parent' type='@'/>
+<arg declared_type='DDXMLNode*' index='2' name='owner' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='DDXMLNode'>
+<method selector='URI'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='XMLString'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='XMLStringWithOptions:'>
+<arg declared_type='NSUInteger' index='0' name='options' type='I' type64='Q'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='XPath'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='_hasParent'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method class_method='true' selector='attributeWithName:URI:stringValue:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSString*' index='1' name='URI' type='@'/>
+<arg declared_type='NSString*' index='2' name='stringValue' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='attributeWithName:stringValue:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSString*' index='1' name='stringValue' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='childAtIndex:'>
+<arg declared_type='NSUInteger' index='0' name='index' type='I' type64='Q'/>
+<retval declared_type='DDXMLNode*' type='@'/>
+</method>
+<method selector='childCount'>
+<retval declared_type='NSUInteger' type='I' type64='Q'/>
+</method>
+<method selector='children'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method class_method='true' selector='commentWithStringValue:'>
+<arg declared_type='NSString*' index='0' name='stringValue' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='description'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='detach'>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='detachAttribute:'>
+<arg declared_type='id' index='0' name='attr' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='detachAttribute:andClean:'>
+<arg declared_type='id' index='0' name='attr' type='@'/>
+<arg declared_type='BOOL' index='1' name='clean' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='detachChild:'>
+<arg declared_type='id' index='0' name='child' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='detachChild:andClean:andFixNamespaces:'>
+<arg declared_type='id' index='0' name='child' type='@'/>
+<arg declared_type='BOOL' index='1' name='clean' type='B'/>
+<arg declared_type='BOOL' index='2' name='fixNamespaces' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='detachNamespace:fromNode:'>
+<arg declared_type='id' index='0' name='ns' type='@'/>
+<arg declared_type='id' index='1' name='node' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='elementWithName:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='elementWithName:URI:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSString*' index='1' name='URI' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='elementWithName:children:attributes:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSArray*' index='1' name='children' type='@'/>
+<arg declared_type='NSArray*' index='2' name='attributes' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='elementWithName:stringValue:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSString*' index='1' name='string' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='getHasPrefix:localName:forName:'>
+<arg declared_type='BOOL*' index='0' name='hasPrefixPtr' type='^B'/>
+<arg declared_type='NSString**' index='1' name='localNamePtr' type='^@'/>
+<arg declared_type='NSString*' index='2' name='name' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='getPrefix:localName:forName:'>
+<arg declared_type='NSString**' index='0' name='prefixPtr' type='^@'/>
+<arg declared_type='NSString**' index='1' name='localNamePtr' type='^@'/>
+<arg declared_type='NSString*' index='2' name='name' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='index'>
+<retval declared_type='NSUInteger' type='I' type64='Q'/>
+</method>
+<method selector='initWithPrimitive:owner:'>
+<arg declared_type='xmlKindPtr' index='0' name='kindPtr' type='^{_xmlKind=^vi}'/>
+<arg declared_type='DDXMLNode*' index='1' name='owner' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='kind'>
+<retval declared_type='DDXMLNodeKind' type='I' type64='Q'/>
+</method>
+<method class_method='true' selector='lastError'>
+<retval declared_type='NSError*' type='@'/>
+</method>
+<method selector='level'>
+<retval declared_type='NSUInteger' type='I' type64='Q'/>
+</method>
+<method selector='localName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method class_method='true' selector='localNameForName:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='name'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method class_method='true' selector='namespaceWithName:stringValue:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSString*' index='1' name='stringValue' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='nextNode'>
+<retval declared_type='DDXMLNode*' type='@'/>
+</method>
+<method selector='nextSibling'>
+<retval declared_type='DDXMLNode*' type='@'/>
+</method>
+<method class_method='true' selector='nodeWithPrimitive:owner:'>
+<arg declared_type='xmlKindPtr' index='0' name='kindPtr' type='^{_xmlKind=^vi}'/>
+<arg declared_type='DDXMLNode*' index='1' name='owner' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='nodeWithUnknownPrimitive:owner:'>
+<arg declared_type='xmlKindPtr' index='0' name='kindPtr' type='^{_xmlKind=^vi}'/>
+<arg declared_type='DDXMLNode*' index='1' name='owner' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='nodesForXPath:error:'>
+<arg declared_type='NSString*' index='0' name='xpath' type='@'/>
+<arg declared_type='NSError**' index='1' name='error' type='^@'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='parent'>
+<retval declared_type='DDXMLNode*' type='@'/>
+</method>
+<method selector='prefix'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method class_method='true' selector='prefixForName:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='previousNode'>
+<retval declared_type='DDXMLNode*' type='@'/>
+</method>
+<method selector='previousSibling'>
+<retval declared_type='DDXMLNode*' type='@'/>
+</method>
+<method class_method='true' selector='processingInstructionWithName:stringValue:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSString*' index='1' name='stringValue' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='recursiveStripDocPointersFromNode:'>
+<arg declared_type='id' index='0' name='node' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='removeAllAttributesFromNode:'>
+<arg declared_type='id' index='0' name='node' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='removeAllChildrenFromNode:'>
+<arg declared_type='id' index='0' name='node' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='removeAllNamespacesFromNode:'>
+<arg declared_type='id' index='0' name='node' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='removeAttribute:'>
+<arg declared_type='id' index='0' name='attr' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='removeChild:'>
+<arg declared_type='id' index='0' name='child' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='removeNamespace:fromNode:'>
+<arg declared_type='id' index='0' name='ns' type='@'/>
+<arg declared_type='id' index='1' name='node' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='rootDocument'>
+<retval declared_type='DDXMLDocument*' type='@'/>
+</method>
+<method selector='setName:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setStringValue:'>
+<arg declared_type='NSString*' index='0' name='string' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setURI:'>
+<arg declared_type='NSString*' index='0' name='URI' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='stringValue'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method class_method='true' selector='textWithStringValue:'>
+<arg declared_type='NSString*' index='0' name='stringValue' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='GCAlertView'>
+<method selector='addButtonWithTitle:block:'>
+<arg declared_type='NSString*' index='0' name='title' type='@'/>
+<arg declared_type='void (^)(void)' function_pointer='true' index='1' name='block' type='@?'>
+<retval declared_type='void' type='v'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='initWithTitle:message:'>
+<arg declared_type='NSString*' index='0' name='title' type='@'/>
+<arg declared_type='NSString*' index='1' name='message' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='setDidDismissBlock:'>
+<arg declared_type='void (^)(void)' function_pointer='true' index='0' name='block' type='@?'>
+<retval declared_type='void' type='v'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDidPresentBlock:'>
+<arg declared_type='void (^)(void)' function_pointer='true' index='0' name='block' type='@?'>
+<retval declared_type='void' type='v'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setWillDismissBlock:'>
+<arg declared_type='void (^)(void)' function_pointer='true' index='0' name='block' type='@?'>
+<retval declared_type='void' type='v'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setWillPresentBlock:'>
+<arg declared_type='void (^)(void)' function_pointer='true' index='0' name='block' type='@?'>
+<retval declared_type='void' type='v'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='NSObject'>
+<method selector='bodyForNoticeAlert'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='notifierDidDismissAlert'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='notifierDidLogException:'>
+<arg declared_type='NSException*' index='0' name='exception' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='notifierDidPostNotices'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='notifierWillDisplayAlert'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='notifierWillPostNotices'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='rootViewControllerForNotice'>
+<retval declared_type='UIViewController*' type='@'/>
+</method>
+<method selector='titleForNoticeAlert'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='NSString'>
+<method selector='stringByTrimming'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='xmlChar'>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<informal_protocol name='ABNotifierDelegate'>
+<method selector='bodyForNoticeAlert' type='@8@0:4' type64='@16@0:8'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='notifierDidDismissAlert' type='v8@0:4' type64='v16@0:8'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='notifierDidLogException:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='NSException*' index='0' name='exception' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='notifierDidPostNotices' type='v8@0:4' type64='v16@0:8'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='notifierWillDisplayAlert' type='v8@0:4' type64='v16@0:8'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='notifierWillPostNotices' type='v8@0:4' type64='v16@0:8'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='rootViewControllerForNotice' type='@8@0:4' type64='@16@0:8'>
+<retval declared_type='UIViewController*' type='@'/>
+</method>
+<method selector='titleForNoticeAlert' type='@8@0:4' type64='@16@0:8'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</informal_protocol>
+</signatures>

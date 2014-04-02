@@ -1,0 +1,13 @@
+PODS:
+  - Airbrake-iOS (3.1.0):
+    - KissXML
+  - KissXML (5.0)
+
+DEPENDENCIES:
+  - Airbrake-iOS (~> 3.1)
+
+SPEC CHECKSUMS:
+  Airbrake-iOS: b7be6cd3d59be097dbf9b57305aac5a231dc3f4f
+  KissXML: 4c66b6f39ef49c23e6bb8d335b94136f12b1b615
+
+COCOAPODS: 0.31.1
