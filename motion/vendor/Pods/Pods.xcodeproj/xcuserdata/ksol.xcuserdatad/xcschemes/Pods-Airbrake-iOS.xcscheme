@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F0EE8F7CCDB24CD7A392349B"
+               BlueprintIdentifier = "81F193B5149F4F3D808A9731"
                BuildableName = "libPods-Airbrake-iOS.a"
                BlueprintName = "Pods-Airbrake-iOS"
                ReferencedContainer = "container:Pods.xcodeproj">
