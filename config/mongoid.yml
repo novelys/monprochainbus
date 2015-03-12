@@ -78,9 +78,9 @@ test:
 staging:
   sessions:
     default:
-      uri: <%= ENV['APPSDECK_MONGO_URL'] %>
+      uri: <%= ENV['MONGO_URL'] %>
 
 production:
   sessions:
     default:
-      uri: <%= ENV['APPSDECK_MONGO_URL'] %>
+      uri: <%= ENV['MONGO_URL'] %>
