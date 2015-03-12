@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.0.0'
@@ -56,7 +56,7 @@ gem 'rabl' # json templates
 
 gem 'savon', '~> 2.3.0' # soap client
 gem 'mongoid_slug'
-gem 'mongoid', '~> 4.0.0.beta1 '
+gem 'mongoid', '~> 4.0.0'
 gem 'geocoder'
 gem 'rails-i18n'
 gem 'time_diff'
