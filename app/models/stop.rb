@@ -1,4 +1,3 @@
-require 'soap_client'
 require 'csv'
 
 class Stop

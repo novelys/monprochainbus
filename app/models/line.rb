@@ -10,6 +10,10 @@ class Line
     stop.slug
   end
 
+  def id
+    [stop.slug, name].join("-").parameterize
+  end
+
   def self.fetch(stop: stop, number: 1)
     code = stop.code
     response = SoapClient.new.call(:recherche_prochaines_arrivees_web,
@@ -22,9 +26,10 @@ class Line
     raise NoNextArrivals if res.blank?
     res = [res] unless res.is_a? Array
 
-    now = Time.zone.now
+    now_parent = Time.zone.now
 
     ary = res.inject({}){|memo, obj|
+      now = now_parent.dup
       hour, min, sec = obj[:horaire].split(":")
       scheduled_remaining_time = now.change(hour: hour, min: min, sec: sec)
       scheduled_remaining_time += 1.day if obj[:est_apres_minuit] == "true" && now <= now.end_of_day && now >= (now.end_of_day - 3.hours)
@@ -34,12 +39,13 @@ class Line
       direction_name = tail.join(" ")
 
       if (line = memo[ line_name ]).blank?
-        line_direction = LineDirection.new name: direction_name, mode: mode, scheduled_times: [ scheduled_remaining_time ]
+        line_direction = LineDirection.new(line: line, name: direction_name, mode: mode, scheduled_times: [ scheduled_remaining_time ])
         line = Line.new stop: stop, mode: mode, name: line_name, line_directions: [ line_direction ]
+        line.line_directions.first.line = line
         memo[ line_name ] = line
       else
         if (already_existing_line_direction = line.line_directions.detect{|x| x.mode == mode && x.name == direction_name }).blank?
-          line.line_directions << LineDirection.new(name: direction_name, mode: mode, scheduled_times: [ scheduled_remaining_time ])
+          line.line_directions << LineDirection.new(line: line, name: direction_name, mode: mode, scheduled_times: [ scheduled_remaining_time ])
         else
           already_existing_line_direction.scheduled_times << scheduled_remaining_time
         end

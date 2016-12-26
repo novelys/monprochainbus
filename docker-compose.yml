@@ -1,0 +1,21 @@
+version: '2'
+services:
+  mongo:
+    image: scalingo/mongo:3.2.10-1
+    volumes:
+      - ./docker/mongodb-data:/var/lib/mongodb:rw,z
+    command: /mongo
+  web:
+    build: .
+    links:
+      - mongo
+    volumes:
+     - .:/usr/src/app:rw,z
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URL: "mongodb://admin:admin-secret@mongo:27017/viaticus-development?authSource=admin"
+      BUNDLE_BIN: "/usr/src/app/vendor/.bundle/ruby/2.3.0/bin"
+      BUNDLE_PATH: "/usr/src/app/vendor/.bundle/ruby/2.3.0"
+      BUNDLE_APP_CONFIG: "/usr/src/app/.bundle"
+    command: bundle exec rails server --bind 0.0.0.0 --port 3000

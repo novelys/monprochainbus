@@ -1,0 +1,211 @@
+$brand-primary:                       #97bf0b
+$link-hover-color:                  lighten($brand-primary, 10%)
+$font-family-sans-serif:                  'Droid Sans', sans-serif
+
+$text-color:                       #282828
+$navbar-default-bg:                $brand-primary
+$navbar-default-border:                $brand-primary
+$navbar-default-brand-color:        white
+$navbar-default-brand-hover-color: white
+
+@import bootstrap
+@import bus_colors
+@import flatdesign
+@import navbar
+
+.row-fluid [class*="span"]
+  min-height: 0
+
+.inline-block
+  display: inline-block
+
+.cms
+  margin-top: 40px
+  strong
+    font-size: 1.2em
+    line-height: 1.2em
+  p
+    margin: 10px 0 20px 0
+
+.waiting.main
+  font-size: 16em
+  line-height: 2em
+  color: $brand-primary
+  text-align: center
+  vertical-align: middle
+
+footer
+  padding: 10px 0
+
+.address
+  text-align: left
+
+.toggle
+  text-align: right
+
+.do-displayForm
+  color: #282828
+  text-decoration: underline
+  &:hover
+    color: $text-color
+
+.form
+  margin: 20px 0
+  .btn
+    background-color: $brand-primary
+    color: white
+    border-color: $brand-primary
+    box-shadow: none
+    border-radius: 0
+    text-shadow: none
+    background-image: linear-gradient(to bottom, $brand-primary, $brand-primary)
+
+.stops_list
+  margin-top: 20px
+  .stop
+    margin-bottom: 20px
+    .stop_name
+      font-size: 2em
+      line-height: 1.6em
+      font-weight: bold
+      margin-right: 20px
+    .secondary
+      margin-right: 20px
+    .distance
+      display: inline-block
+      a
+        color: inherit
+        margin-left: 5px
+        font-size: 80%
+        &:hover
+          text-decoration: none
+    .lines_list .line
+      border-bottom: 1px dashed #EEEEEE
+      padding: 10px 0
+      &:first-of-type
+        border-top: 1px dashed #EEEEEE
+      .line_directions_list > .row
+        margin-top: 10px
+        &:first-of-type
+          margin-top: 0
+        .col-xs-12
+          margin-left: 0
+      .error
+        text-align: center
+        width: 80%
+        text-overflow: ellipsis
+        white-space: nowrap
+        overflow: hidden
+
+        display: inline-block
+        font-size: 1.4em
+        line-height: 1.4em
+        padding: 5px 0
+      .line_name
+        text-align: center
+        color: white
+        width: 100%
+        font-weight: bold
+
+        display: inline-block
+        font-size: 1.4em
+        line-height: 1.4em
+        padding: 5px 0
+        margin-right: 5px
+      .line_direction
+        text-align: left
+        text-overflow: ellipsis
+        white-space: nowrap
+        overflow: hidden
+
+        font-size: 1.4em
+        line-height: 1.1em
+        .bus
+          fill: $text-color
+          height: 0.9em
+          width: 0.8em
+          position: relative
+          top: 0.1em
+        .tram
+          fill: $text-color
+          height: 1em
+          width: 0.9em
+          position: relative
+          top: 0.1em
+
+      .scheduled_remaining_times
+
+        font-size: 1.4em
+        line-height: 1.1em
+
+@media screen and (max-width: 767px)
+
+  .toggle
+    text-align: left
+
+  .stops_list
+    .stop
+      .stop_name
+        font-size: 1.8em
+        line-height: 1.4em
+      .lines_list .line
+        padding: 5px 0 5px 10px
+        &:first-of-type
+          padding-top: 5px
+        .line_name_block
+          width: 10%
+          float: left
+        .line_directions_list
+          width: 90%
+          float: left
+        .error
+          font-size: 1em
+          line-height: 1em
+        .line_name
+          width: 40px
+          font-size: 1em
+          line-height: 1em
+        .line_direction
+          font-size: 1em
+          line-height: 1em
+        .scheduled_remaining_times
+          font-size: 1em
+          line-height: 1em
+
+@media screen and (max-width: 479px)
+
+  .navbar-inner
+    min-height: 100%
+
+  .brand, .navbar .icon-ellipsis-vertical, .navbar .icon-ellipsis-vertical:hover, .navbar .icon-undo, .navbar .icon-undo:hover
+    font-size: 1.4em
+    line-height: 1.4em
+
+  .stops_list
+    .stop
+      .stop_name
+        font-size: 1.2em
+        line-height: 1.2em
+      .lines_list .line
+        padding: 5px 0
+        &:first-child
+          padding: 5px 0
+        .line_name_block
+          width: 20%
+          float: left
+        .line_directions_list
+          width: 80%
+          float: left
+
+@media screen and (min-width: 1200px)
+
+  .stops_list
+    .stop
+      .stop_name
+      .lines_list .line
+        margin-left: 0
+        &:first-child
+        .col-xs-6
+          margin-left: 10px
+        .line_name
+        .line_direction

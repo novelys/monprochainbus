@@ -1,0 +1,10 @@
+<div class='row line'>
+  <div class='col-xs-12 col-sm-1 col-sm-offset-3 line_name_block'>
+    <span class='{{unbound line.mode}}-{{unbound line.name}} line_name'>{{unbound line.name}}</span>
+  </div>
+  <div class='col-xs-12 col-sm-5 line_directions_list'>
+    {{#each line.lineDirections as |lineDirection|}}
+      {{partial 'line_direction'}}
+    {{/each}}
+  </div>
+</div>

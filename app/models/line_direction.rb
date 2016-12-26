@@ -2,7 +2,11 @@ class LineDirection
   include ActiveModel::Model
   include ActiveModel::Serialization
 
-  attr_accessor :name, :mode, :scheduled_times
+  attr_accessor :line, :name, :mode, :scheduled_times
+
+  def id
+    [line.id, name].join("-").parameterize
+  end
 
   def attributes
     {

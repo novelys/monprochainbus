@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6 address">
+    <small>
+      {{#if geolocalising}}
+        Géolocalisation en cours
+      {{/if}}
+      {{#if geolocalised}}
+        {{#if reverseGeocodedPosition}}
+          Votre position : <span class="inline-block">{{reverseGeocodedPosition}}</span>
+        {{else}}
+          Votre position : <span class="inline-block">{{position.lat}}, {{position.lng}}</span>
+        {{/if}}
+      {{/if}}
+    </small>
+  </div>
+  <div class="col-xs-12 col-sm-6 toggle">
+    <small><a href="#" class="do-displayForm" {{action 'doDisplayForm'}}>Rentrer une adresse manuellement</a></small>
+  </div>
+</div>
+{{#if geoAutocompleteDisplayForm}}
+<div class="row form">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+    <form onSubmit="return false;">
+      <div class="form-group">
+        <label>
+          {{#if geolocFailedReason1}}
+          Désolé, votre navigateur n'a pas de fonction de géolocalisation.
+          <br/>
+          {{/if}}
+          {{#if geolocFailedReason2}}
+          Désolé, un problème a empêché votre géolocalisation.
+          <br/>
+          {{/if}}
+          {{#if geolocFailedReason3}}
+          Désolé, votre navigateur n'a pas été en mesure de nous donner vos coordonnées géographiques dans le temps imparti.
+          <br/>
+          {{/if}}
+          Vous pouvez renseigner l'adresse de votre choix ci-dessous :
+        </label>
+        {{address-autocomplete-form submitPosition='submitPosition'}}
+      </div>
+    </form>
+  </div>
+</div>
+{{/if}}
+{{#if geolocalisingOrStopsFetching}}
+<div class="row waiting main">
+  <div class="col-xs-12">
+    {{fa-icon "spinner" spin=true class="main"}}
+  </div>
+</div>
+{{/if}}
+{{#if stops}}
+<div class="stops_list">
+{{#each stops as |stop|}}
+  {{partial 'stop'}}
+{{/each}}
+</div>
+{{/if}}

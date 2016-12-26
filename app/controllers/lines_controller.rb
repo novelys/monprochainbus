@@ -33,11 +33,6 @@ class LinesController < ApplicationController
       threads.each {|t| t.join}
     end
 
-    respond_to do |format|
-      format.html
-      format.json {
-        render json: @lines, each_serializer: LineSerializer
-      }
-    end
+    render json: @lines, include: ['line_directions']
   end
 end

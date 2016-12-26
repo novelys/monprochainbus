@@ -1,0 +1,21 @@
+{{#if lineDirection.formattedScheduledTimes}}
+<div class='row'>
+  <div class='col-xs-12'>
+    <span class='line_direction'>
+      {{#if lineDirection.isBus}}
+        {{inline-svg "assets/images/bus.svg" class="bus"}}
+      {{/if}}
+      {{#if lineDirection.isTram}}
+        {{inline-svg "assets/images/tram.svg" class="tram"}}
+      {{/if}}
+      {{fa-icon "long-arrow-right"}}
+      {{unbound lineDirection.name}}
+    </span>
+  </div>
+  <div class='col-xs-12'>
+    <span class='scheduled_remaining_times'>
+      {{fa-icon "clock-o"}} {{{unbound lineDirection.formattedScheduledTimes}}}
+    </span>
+  </div>
+</div>
+{{/if}}
