@@ -24,6 +24,8 @@ module Monprochainbus
 
     config.time_zone = 'Paris'
 
+    config.middleware.use Rack::SslEnforcer, hsts: true
+
     Rails.application.routes.default_url_options = {
       host: ENV['DEFAULT_HOST']
     }
