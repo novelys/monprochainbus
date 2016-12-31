@@ -24,6 +24,7 @@ module Monprochainbus
 
     config.time_zone = 'Paris'
 
+    config.middleware.insert_before  ActionDispatch::Cookies, Rack::SslEnforcer
     config.middleware.use Rack::SslEnforcer, hsts: true
 
     Rails.application.routes.default_url_options = {
